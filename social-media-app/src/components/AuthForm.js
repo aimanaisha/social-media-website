@@ -1,13 +1,18 @@
-import { useState, useRef } from "react"
+import { useState, useRef, useContext } from "react"
 import axios from 'axios'
+import AuthContext from "../store/AuthContext"
 
 const AuthForm = () => {
 
     const [signIn, setSignIn] = useState(true)
-    //    const [loggedIn, setLoggedIn] = useState(false)
+    //const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
+    
 
     const emailRef = useRef()
     const passwordRef = useRef()
+
+    const ctx = useContext(AuthContext)
 
     
         const loginToggleHandler = () => {
@@ -26,20 +31,10 @@ const AuthForm = () => {
             else{
                 url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCq19FoMR1Ye5OzHJfSFQVlewqGm-GPbSc'
             }
-            // fetch(url, {
-            //     method: 'POST',
-            //     body: JSON.stringify({
-            //         email: enteredEmail,
-            //         password: enteredPassword,
-            //         returnSecureToken: true
-            //     }),
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     }
-            // })
+        
             axios({
                 method: 'post',
-                url: url,
+                url: 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCq19FoMR1Ye5OzHJfSFQVlewqGm-GPbSc',
                 data: {                    
                         email: enteredEmail,
                         password: enteredPassword,
@@ -52,6 +47,10 @@ const AuthForm = () => {
             })
             .then((response) => {
                 console.log(response)
+                ctx.login(response.data.idToken)
+            })
+            .catch((error) => {
+                setError(error.response.data.error.message)
             })
         }
     
@@ -66,8 +65,9 @@ const AuthForm = () => {
                 </section>
                 <section>
                     <button>{signIn ? 'Login In' : 'Sign Up'}</button>
-                    <button type="button" onClick={loginToggleHandler}>{signIn ? 'Create a New Account' : 'Sign In to Yor Account'}</button>
+                    <button type="button" onClick={loginToggleHandler}>{signIn ? 'Create a New Account' : 'Log In to an existing Account'}</button>
                 </section>
+                <p>{error}</p>
             </form>
         )
 }
