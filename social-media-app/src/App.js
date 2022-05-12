@@ -1,12 +1,8 @@
-
+import { useState } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div>
-      <h1>login</h1>
-    </div>
-  );
+const App = () => {
+  
 }
 
 export default App;
