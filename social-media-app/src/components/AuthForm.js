@@ -5,12 +5,13 @@ import AuthContext from "../store/AuthContext"
 const AuthForm = () => {
 
     const [signIn, setSignIn] = useState(true)
-    //const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     
 
     const emailRef = useRef()
     const passwordRef = useRef()
+    const usernameRef = useRef()
+
 
     const ctx = useContext(AuthContext)
 
@@ -21,8 +22,11 @@ const AuthForm = () => {
     
         const submitHandler = (event) => {
             event.preventDefault()
+
             const enteredEmail = emailRef.current.value
             const enteredPassword = passwordRef.current.value
+            const enteredUsername = usernameRef.current.value
+
 
             let url 
             if(!signIn){
@@ -34,7 +38,7 @@ const AuthForm = () => {
         
             axios({
                 method: 'post',
-                url: 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCq19FoMR1Ye5OzHJfSFQVlewqGm-GPbSc',
+                url: url,
                 data: {                    
                         email: enteredEmail,
                         password: enteredPassword,
@@ -47,10 +51,11 @@ const AuthForm = () => {
             })
             .then((response) => {
                 console.log(response)
-                ctx.login(response.data.idToken)
+                ctx.login(response.data.idToken, enteredEmail, enteredUsername)                
             })
             .catch((error) => {
                 setError(error.response.data.error.message)
+                
             })
         }
     
@@ -60,6 +65,10 @@ const AuthForm = () => {
                 <section>
                     <label htmlFor="email" required>Your Email </label>
                     <input type='email' id='email' ref={emailRef}/>
+
+                    {!signIn && <label htmlFor="username" required>Your Username</label>}
+                    {!signIn && <input type='text' id='username' ref={usernameRef}/> }
+
                     <label htmlFor="password" required>Your Password </label>
                     <input type='password' id='password' ref={passwordRef}/>
                 </section>
