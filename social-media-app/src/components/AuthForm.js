@@ -1,12 +1,13 @@
 import { useState, useRef, useContext } from "react"
 import axios from 'axios'
 import AuthContext from "../store/AuthContext"
+import { useHistory } from "react-router-dom"
 
 const AuthForm = () => {
 
     const [signIn, setSignIn] = useState(true)
     const [error, setError] = useState(null);
-    
+    const history = useHistory()
 
     const emailRef = useRef()
     const passwordRef = useRef()
@@ -24,9 +25,14 @@ const AuthForm = () => {
             event.preventDefault()
 
             const enteredEmail = emailRef.current.value
-            const enteredPassword = passwordRef.current.value
-            const enteredUsername = usernameRef.current.value
-
+            const enteredPassword = passwordRef.current.value           
+            let enteredUsername
+            if(!signIn){
+                enteredUsername = usernameRef.current.value
+            }
+            else{
+                enteredUsername = ''
+            }
 
             let url 
             if(!signIn){
@@ -51,7 +57,13 @@ const AuthForm = () => {
             })
             .then((response) => {
                 console.log(response)
-                ctx.login(response.data.idToken, enteredEmail, enteredUsername)                
+                ctx.login(response.data.idToken, enteredEmail, enteredUsername)
+                if(signIn){
+                    history.replace('/home')
+                }
+                else{
+                    history.replace('/profile')
+                }                
             })
             .catch((error) => {
                 setError(error.response.data.error.message)

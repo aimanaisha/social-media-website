@@ -1,19 +1,36 @@
 import Login from './pages/Login';
 import './App.css';
-import { AuthContextProvider } from './store/AuthContext';
 import Profile from './pages/Profile';
 import Home from './pages/Home'
-import {Route} from 'react-router-dom'
+import {Route, Switch, Redirect} from 'react-router-dom'
+import { useContext } from 'react';
+import AuthContext from './store/AuthContext';
 
 const App = () => {
 
+  const ctx = useContext(AuthContext)
+
   return (
-    <AuthContextProvider> 
-      <Route path='/login'><Login/></Route>     
-      
-      <Route path='/profile'> <Profile/> </Route>
-      <Route path='/home'> <Home/> </Route>
-    </AuthContextProvider>
+     
+      <Switch>
+
+        <Route path='/' exact>
+          <Redirect to='/login'/>          
+        </Route>
+        {!ctx.isLoggedIn && <Route path='/login'>
+          <Login/></Route>}         
+        {ctx.isLoggedIn && <Route path='/profile'>
+          <Profile/>
+        </Route>}          
+        {ctx.isLoggedIn && <Route path='/home'>
+          <Home/>
+        </Route>}
+        <Route path='*'>
+          <Redirect to='/login'/>
+        </Route>
+        
+      </Switch>
+    
   )
 }
 
