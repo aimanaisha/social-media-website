@@ -5,7 +5,10 @@ import classes from './UserProfile.module.css'
 
 const UserProfile = () => {
 
+
     const ctx = useContext(AuthContext)
+    const currentUser = ctx.useAuth()
+
     const [newPass, setNewPass] = useState(false)
 
     const newPasswordRef = useRef()
@@ -50,7 +53,7 @@ const UserProfile = () => {
     return(<div className={classes.container}>
         <h1>Welcome to Your Profile!</h1> 
         <h2>Your Email</h2>
-        <p>{ctx.email}</p>
+        <p>{currentUser.email}</p>
         {!newPass && <button onClick={showFormHandler} className={classes.button}>Set New Password</button>}
         {newPass && <form onSubmit={submitHandler}>
             <label htmlFor='new-password'>New Password</label>
