@@ -21,8 +21,8 @@ const App = () => {
           <Redirect to='/login'/>          
         </Route>
         {!currentUser && <Login/>}         
-        {currentUser && <Profile/>}          
-        {currentUser && <Home/>}
+        {currentUser && <Route path='/profile'><Profile/></Route>}          
+        {currentUser && <Route path='/home'><Home/></Route>}
         <Route path='*'>
           <Redirect to='/login'/>
         </Route>

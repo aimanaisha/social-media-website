@@ -21,28 +21,27 @@ export function logout() {
 
 export function useAuth() {
   const [ currentUser, setCurrentUser ] = useState();
-
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, user => setCurrentUser(user));
     return unsub;
   }, [])
-
   return currentUser;
 }
+
 export async function upload(file, currentUser) {
-    console.log('hii im here')
-
     const fileRef = ref(storage, currentUser.uid + '.png' )
-    console.log('image name selected')
-
     await uploadBytes(fileRef, file)
-    console.log('file stored')
-
     const photoURL = await getDownloadURL(fileRef);
-
     updateProfile(currentUser, {photoURL});
-    
-    alert("Uploaded file!")
+}
+
+export function username(displayName, currentUser){
+    updateProfile(currentUser, {displayName})
+}
+
+export function phoneNumber(phoneNumber, currentUser){
+    console.log(phoneNumber, currentUser)
+    updateProfile(currentUser, {phoneNumber})
 }
 
 

@@ -6,6 +6,7 @@ const Profile = () => {
     return (
         <>
         <Navbar/>
+        <h1>Welcome to Your Profile!</h1> 
         <UserProfile/>
         </>
     )
