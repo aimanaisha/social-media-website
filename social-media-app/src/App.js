@@ -3,15 +3,15 @@ import './App.css';
 import Profile from './pages/Profile';
 import Home from './pages/Home'
 import {Route, Switch, Redirect} from 'react-router-dom'
-import { useContext } from 'react';
-import AuthContext from './store/AuthContext';
+import { useAuth } from './store/AuthContext';
 
 
 
 
 const App = () => {
 
-  const ctx = useContext(AuthContext)
+
+  const currentUser = useAuth()
 
   return (
      
@@ -20,14 +20,9 @@ const App = () => {
         <Route path='/' exact>
           <Redirect to='/login'/>          
         </Route>
-        {!ctx.isLoggedIn && <Route path='/login'>
-          <Login/></Route>}         
-        {ctx.isLoggedIn && <Route path='/profile'>
-          <Profile/>
-        </Route>}          
-        {ctx.isLoggedIn && <Route path='/home'>
-          <Home/>
-        </Route>}
+        {!currentUser && <Login/>}         
+        {currentUser && <Profile/>}          
+        {currentUser && <Home/>}
         <Route path='*'>
           <Redirect to='/login'/>
         </Route>
@@ -35,6 +30,29 @@ const App = () => {
       </Switch>
     
   )
+
+  //   return (
+     
+  //     <Switch>
+
+  //       <Route path='/' exact>
+  //         <Redirect to='/login'/>          
+  //       </Route>
+  //       <Route path='/login'>
+  //         <Login/></Route>       
+  //       <Route path='/profile'>
+  //         <Profile/>
+  //       </Route>   
+  //       <Route path='/home'>
+  //         <Home/>
+  //       </Route>
+  //       <Route path='*'>
+  //         <Redirect to='/login'/>
+  //       </Route>
+        
+  //     </Switch>
+    
+  // )
 }
 
 export default App;

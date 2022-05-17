@@ -1,67 +1,53 @@
-import { useContext, useState, useRef } from "react"
-import AuthContext from "../store/AuthContext"
-import axios from "axios"
+import { useState, useEffect} from "react"
 import classes from './UserProfile.module.css'
+import { useAuth, upload } from "../store/AuthContext"
 
 const UserProfile = () => {
 
+    const currentUser = useAuth()
+    
+    const [photo, setPhoto] = useState(null)
+    const [imageURL, setimageURL] = useState("https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png")
 
-    const ctx = useContext(AuthContext)
-    const currentUser = ctx.useAuth()
+    const test= () => {
+        console.log(currentUser)
+    }
 
-    const [newPass, setNewPass] = useState(false)
-
-    const newPasswordRef = useRef()
-    const confirmNewPasswordRef = useRef()
-
-    const submitHandler = (e) => {
-        e.preventDefault()
-        const enteredNewPassword = newPasswordRef.current.value
-        const confirmNewPassword = confirmNewPasswordRef.current.value
-
-        if(enteredNewPassword === confirmNewPassword){
-            axios({
-                method: 'post',
-                url: 'https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyCq19FoMR1Ye5OzHJfSFQVlewqGm-GPbSc',
-                data: {                    
-                        idToken: ctx.token,
-                        password: enteredNewPassword,
-                        returnSecureToken: true                    
-                },
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(()=>{
-                alert('Password Changed!')
-                newPasswordRef.current.value = ''
-                confirmNewPasswordRef.current.value = ''
-            })
-            .catch((error)=>{
-                alert(error)
-                console.log(error)
-            })
+    const imageChangeHandler = (event) => {
+        if(event.target.files[0]){
+            setPhoto(event.target.files[0])
+            console.log('file chosen')
         }
-        else{
-            alert('Passwords do Not Match')
-        }       
     }
-    const showFormHandler = () => {
-        setNewPass(true)
+    const imageUploadHandler = () => {
+        
+            upload(photo, currentUser)
+            console.log('upload fun called')
+        
     }
+
+    useEffect(() => {
+        if (currentUser?.photoURL) {
+          setimageURL(currentUser.photoURL)
+        }
+      }, [currentUser])
+
 
     return(<div className={classes.container}>
+
+
+        <img src={imageURL} alt='error'/>
+        <label htmlFor="myfile">Select a file</label>
+        <input type="file" accept="image/*" id='myfile' onChange={imageChangeHandler} className={classes.file}/>
+        <button onClick={imageUploadHandler}>upload</button>
+
+
+        <button onClick={test}>test</button>
         <h1>Welcome to Your Profile!</h1> 
         <h2>Your Email</h2>
-        <p>{currentUser.email}</p>
-        {!newPass && <button onClick={showFormHandler} className={classes.button}>Set New Password</button>}
-        {newPass && <form onSubmit={submitHandler}>
-            <label htmlFor='new-password'>New Password</label>
-            <input required id='new-password' type='password' ref={newPasswordRef} minLength='7' className={classes.input}/>
-            <label htmlFor='confirm-new-password'>Confirm New Password</label>
-            <input required id='confirm-new-password' type='password' ref={confirmNewPasswordRef} minLength='7' className={classes.input}/>
-            <button className={classes.button}>Change Password</button>
-        </form>}        
+        <p>{currentUser?.email}</p>
+        
+        
         </div>
     )
 }

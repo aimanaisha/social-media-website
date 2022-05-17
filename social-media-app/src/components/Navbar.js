@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom"
-import { useContext } from "react"
-import AuthContext from "../store/AuthContext"
+import { logout } from "../store/AuthContext"
 import classes from './Navbar.module.css'
 
-const Navbar = () => {
-
-    const ctx = useContext(AuthContext)
+const Navbar = () => {    
 
     const logoutHandler = () => {
-        ctx.logout()
+        logout()
     }
 
     return(

@@ -1,33 +1,29 @@
-import { useState, useRef, useContext } from "react"
-import AuthContext from "../store/AuthContext"
+import { useState, useRef} from "react"
+
 import { useHistory } from "react-router-dom"
 import classes from './AuthForm.module.css'
-
-
+import { signup, login } from "../store/AuthContext"
+import { useAuth } from "../store/AuthContext"
 
 const AuthForm = () => {
       
 
-    const [signIn, setSignIn] = useState(true)
-   
+    const [signIn, setSignIn] = useState(true)   
     const history = useHistory()
-
     const emailRef = useRef()
     const passwordRef = useRef()
     const confirmPasswordRef = useRef()
 
-
-
-    const ctx = useContext(AuthContext)
+    const currentUser = useAuth()
 
         const loginToggleHandler = () => {
             setSignIn((prevState) => !prevState)
         }
-        
-    
+            
         const submitHandler = (event) => {
 
             event.preventDefault()
+            console.log(currentUser)
 
             const enteredEmail = emailRef.current.value
             const enteredPassword = passwordRef.current.value
@@ -44,11 +40,10 @@ const AuthForm = () => {
             
             if(enteredPassword === confirmPassword){
     
-                //let url 
                 if(!signIn){
-                    //url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCq19FoMR1Ye5OzHJfSFQVlewqGm-GPbSc'
+                 
                     try{
-                        ctx.signup(enteredEmail, enteredPassword);
+                        signup(enteredEmail, enteredPassword);
                         history.replace('/profile')
                     }
                     catch(error){
@@ -57,9 +52,9 @@ const AuthForm = () => {
                     
                 }
                 else{
-                    //url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCq19FoMR1Ye5OzHJfSFQVlewqGm-GPbSc'
+                
                     try{
-                        ctx.login(enteredEmail, enteredPassword);
+                        login(enteredEmail, enteredPassword);
                         history.replace('/home')
                     }
                     catch(error){
@@ -67,34 +62,6 @@ const AuthForm = () => {
                     }
                     
                 }
-            
-                // axios({
-                //     method: 'post',
-                //     url: url,
-                //     data: {                    
-                //             email: enteredEmail,
-                //             password: enteredPassword,
-                //             returnSecureToken: true                    
-                //     },
-                //     headers: {
-                //         'Content-Type': 'application/json'
-                //     }
-    
-                // })
-                // .then((response) => {
-                    
-                //     ctx.login(response.data.idToken, enteredEmail, enteredUsername)
-                //     if(signIn){
-                //         history.replace('/home')
-                //     }
-                //     else{
-                //         history.replace('/profile')
-                //     }                
-                // })
-                // .catch((error) => {
-                //     alert(error.response.data.error.message)
-                    
-                // })
             }
             else{
                 alert('Passwords do Not Match')
