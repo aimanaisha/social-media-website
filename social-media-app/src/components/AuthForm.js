@@ -1,5 +1,4 @@
 import { useState, useRef} from "react"
-
 import { useHistory } from "react-router-dom"
 import classes from './AuthForm.module.css'
 import { signup, login } from "../store/AuthContext"
@@ -23,13 +22,11 @@ const AuthForm = () => {
         const submitHandler = (event) => {
 
             event.preventDefault()
-            console.log(currentUser)
 
             const enteredEmail = emailRef.current.value
             const enteredPassword = passwordRef.current.value
 
             let confirmPassword
-
 
             if(signIn){
                 confirmPassword = enteredPassword
@@ -40,34 +37,28 @@ const AuthForm = () => {
             
             if(enteredPassword === confirmPassword){
     
-                if(!signIn){
-                 
+                if(!signIn){                 
                     try{
                         signup(enteredEmail, enteredPassword);
                         history.replace('/profile')
                     }
                     catch(error){
                         alert(error)
-                    }
-                    
+                    }                    
                 }
-                else{
-                
+                else{                
                     try{
                         login(enteredEmail, enteredPassword);
                         history.replace('/home')
                     }
                     catch(error){
                         alert(error)
-                    }
-                    
+                    }                    
                 }
             }
             else{
                 alert('Passwords do Not Match')
-            }
-
-          
+            }          
         }
     
         return(
