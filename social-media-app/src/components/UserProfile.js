@@ -7,6 +7,7 @@ const UserProfile = () => {
     const currentUser = useAuth()
     const usernameRef = useRef()
     
+    const [loading, setLoading] = useState(false)
     const [photo, setPhoto] = useState(null)
     const [userName, setUserName] = useState('Add a username')
     const [imageURL, setimageURL] = useState("https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png")
@@ -17,9 +18,20 @@ const UserProfile = () => {
         if(event.target.files[0]){
             setPhoto(event.target.files[0])
         }
+        else{
+          alert('nothing is selected')
+        }
     }
-    const imageUploadHandler = () => {        
-            upload(photo, currentUser)
+    const imageUploadHandler = async () => { 
+      setLoading(true)       
+      if(photo){
+        await  upload(photo, currentUser)
+        setLoading(false)
+      }
+      else{
+        alert('nothing is selected')
+      }
+          
     }
 
     useEffect(() => {
@@ -38,11 +50,12 @@ const UserProfile = () => {
         setForm(true)
       }
 
-    const  infoChangeHandler = (e) => {
+    const  infoChangeHandler = async (e) => {
         e.preventDefault()
+        setLoading(true)
         setForm(false)
-        username(usernameRef.current.value, currentUser)
-    
+        await username(usernameRef.current.value, currentUser)
+        setLoading(false)
     }
     const test = ()=>{
       console.log(currentUser)
@@ -72,7 +85,7 @@ const UserProfile = () => {
 
         <button onClick={test}>test</button>
        
-        
+       {loading && <p>loading...</p>} 
         
         </div>
     )
