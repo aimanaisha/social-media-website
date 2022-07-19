@@ -1,0 +1,10 @@
+.box{
+    background-image: url('../assets/SignUp-Page.png');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}

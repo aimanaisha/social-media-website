@@ -1,28 +1,25 @@
 .nav{
-    height: 90px;
-    background-color: #6a4d99;
-    padding: 0.2rem;
+    position: fixed;
 }
-
-.ul{
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    color: white;
+.test{
+    position: fixed;
+    right: 0.5px;
     
+}
+.ul{
+    list-style: none;    
+    background-color: brown;
+    margin: 0px;
+    position: relative;
+
+    /* z-index: 200; */
 }
 .li{
     text-decoration: none;
-    color: white;
-    margin: 3rem;
-    font-size: 25px;
 }
 
 .button{
-    background-color: #6a4d99;
     border: none;
-    color: white;
-    font-size: 25px;
-    margin-left: 1rem;
+   
     cursor: pointer;
 }

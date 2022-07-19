@@ -1,68 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
 .container{
-    display: flex;
-    flex-direction: column;    
-    margin: 3rem auto;
-    width: 95%;
-    max-width: 40rem;
-    border-radius: 6px;
-    background-color: #ece7f3;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    padding: 2.5rem 2rem;
     text-align: center;
 }
-
-.input{
-    font: inherit;
-    background-color: #ffffff;
-    color: #38015c;
-    border-radius: 8px;
-    border: 1px solid rgb(213, 216, 230);
-    width: 80%;
-    display: block;
-    height: 33px;
-    text-align: left;
-    margin: 1.4rem auto;
-    padding: 0.25rem;
+.dp{
+    width: 240px;
+    height: 240px;
+    border: solid rgb(72, 74, 74) 3px;
+    border-radius: 22px;
 }
-
-.button{
-    cursor: pointer;
-  font: inherit;
-  color: white;
-  background-color: #6a4d99;
-  border: 1px solid #a08bad;
-  border-radius: 7px;
-  padding: 0.5rem 2.5rem;
-  display: block;
-  margin: 2.5rem auto;
-  
+.dpbg{
+    width: 360px;
+    height: 360px;
+    border: solid rgb(72, 74, 74) 3px;
+    border-radius: 22px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("data:image/svg+xml,%3Csvg width='70' height='70' viewBox='0 0 70 70' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2393caf9' fill-opacity='0.59' fill-rule='evenodd'%3E%3Cpath d='M0 0h35v35H0V0zm5 5h25v25H5V5zm5 5h15v15H10V10zm5 5h5v5h-5v-5zM40 5h25v25H40V5zm5 5h15v15H45V10zm5 5h5v5h-5v-5zM70 35H35v35h35V35zm-5 5H40v25h25V40zm-5 5H45v15h15V45zm-5 5h-5v5h5v-5zM30 40H5v25h25V40zm-5 5H10v15h15V45zm-5 5h-5v5h5v-5z'/%3E%3C/g%3E%3C/svg%3E");   
 }
-
-.link{
-    cursor: pointer;
-    border: none;
-    background-color: #ece7f3;
-    font-size: 1.1rem;
-    font-weight: 500;
+.username{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    margin-top: 4rem;
+    font-size: 2.5rem;
+    color: rgb(46, 49, 49);
 }
-
-h1{
-    margin-bottom: 2.3rem;
-    font-weight: 100;
+.bio{
+    font-family: 'Mali', cursive;
+    font-size: 1.7rem;
+    font-style: italic;
+    margin-bottom: 4.5rem;
 }
-h2{
-    font-weight: 300;
-    margin-bottom: 8px;
+.quote{
+    height: 75px;
 }
-p{
-    font-weight: 300;
-    margin-bottom: 2.5rem;
+.about{
+    border: solid rgb(72, 74, 74) 3px;
+    padding: 0.5rem;
+    margin: 2rem;
+    border-radius: 16px;
+    display: inline-block;
+    background-color: aliceblue;
 }
-.label{
+.aboutborder{
+    padding: 0.6rem;
+    margin-bottom: 3rem;
+    border: solid rgb(72, 74, 74) 3px;
+    border-radius: 16px;
+    display: inline-block;
+    background-image: url("data:image/svg+xml,%3Csvg width='70' height='70' viewBox='0 0 70 70' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2393caf9' fill-opacity='0.59' fill-rule='evenodd'%3E%3Cpath d='M0 0h35v35H0V0zm5 5h25v25H5V5zm5 5h15v15H10V10zm5 5h5v5h-5v-5zM40 5h25v25H40V5zm5 5h15v15H45V10zm5 5h5v5h-5v-5zM70 35H35v35h35V35zm-5 5H40v25h25V40zm-5 5H45v15h15V45zm-5 5h-5v5h5v-5zM30 40H5v25h25V40zm-5 5H10v15h15V45zm-5 5h-5v5h5v-5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.infodiv{
+    display: flex;
+    margin: 1.5rem;
+}
+.info{
+    font-family: 'Mali', cursive;
     font-size: 1.3rem;
-    font-weight: 300;
+    font-weight: normal;
+    margin: 0px;
+    margin-left: 20px;
+    margin-top: 12px;
 }
-
-.file {
-    display: none;
+.infoimg{
+    height: 50px;
 }

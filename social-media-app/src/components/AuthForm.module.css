@@ -1,40 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
 .container{
     display: flex;
-    flex-direction: column;    
-    margin: 3rem auto;
-    width: 95%;
-    max-width: 40rem;
-    border-radius: 6px;
-    background-color: #ece7f3;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    padding: 2.5rem 2rem;
-    text-align: center;
+    flex-direction: row; 
+    justify-content: space-between;   
+    margin: auto;
+    width: 1100px;
+    height: 60vh;
+    background-color: #CDB4DB;    
+    border: solid black 4px;
+    text-align: left;
+    font-size: small;
+    font-family: 'Mali', cursive;
+}
+.leftbox{
+    display: flex;
+    border-right: solid black 4px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+} 
+.rightbox{
+    background-color: #F8AD9D;
+    display: flex;
+    flex-direction: column;
+    padding-left: 3rem;
+    justify-content: center;
+    width: 40%;
 }
 
 .input{
     font: inherit;
-    background-color: #ffffff;
-    color: #38015c;
-    border-radius: 8px;
-    border: 1px solid rgb(213, 216, 230);
-    width: 80%;
+    background-color: #FDFDFD;
+    border: 2px solid black;
+    width: 56%;
     display: block;
-    height: 33px;
+    height: 28px;
     text-align: left;
-    margin: 1.4rem auto;
+    margin: 0.8rem auto;
     padding: 0.25rem;
+    padding-left: 12px;
 }
 
-.button{
+.loginbutton{
     cursor: pointer;
   font: inherit;
-  color: white;
-  background-color: #6a4d99;
-  border: 1px solid #a08bad;
-  border-radius: 7px;
-  padding: 0.5rem 2.5rem;
-  display: block;
-  margin: 2rem auto;
+  color: black;
+  background-color: #F8AD9D;
+  border: 2px solid #050505;
+  /* border-radius: 5px; */
+  width: 114px;
+  height: 38px;
+  margin-top: 8px;
 }
 
 .link{
@@ -42,16 +61,61 @@
     border: none;
     background-color: #ece7f3;
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: lighter;
 }
 
-h1{
-    margin-bottom: 2rem;
-    font-weight: 100;
+.h1{
+    font-weight: 400;
 }
-
-
-.label{
+.adventure{
+    font-weight: 400;
+    margin-bottom: 0px;
+    font-size: 1.8rem;
+}
+.started{
+    font-weight: 400;
+    margin-top: 2rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    color: #3a3535;
+}
+.noaccount{
+    font-weight: 400;
     font-size: 1.3rem;
-    font-weight: 300;
+    margin-top: 0px;
+}
+.image{
+    margin: 0;
+}
+.signupbutton{
+    cursor: pointer;
+  font: inherit;
+  color: black;
+  background-color: #CDB4DB;
+  border: 2px solid #050505;
+  /* border-radius: 5px; */
+  padding: 0.3rem 1.8rem;
+  width: 200px;
+  font-size: large;
+}
+.googlebutton{
+    background-color: #FDFDFD;
+    border: 2px solid black;
+    width: 56%;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Mali', cursive;
+    font-weight: bold;
+    cursor: pointer;
+}
+.google{
+    height: 30px;
+    margin-right: 7px;
+}
+.password{
+    font-size: large;
+    margin-top: 1.5rem;
+    cursor: pointer;
 }

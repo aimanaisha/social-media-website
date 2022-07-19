@@ -1,6 +1,12 @@
 import { useState, useEffect, useRef} from "react"
 import classes from './UserProfile.module.css'
 import { useAuth, upload, username } from "../store/AuthContext"
+import call from '../assets/call.png'
+import mail from '../assets/mail.png'
+import location from '../assets/location.png'
+import quotel from '../assets/quotel.png'
+import quoter from '../assets/quoter.png'
+
 
 const UserProfile = () => {
 
@@ -63,16 +69,28 @@ const UserProfile = () => {
 
 
     return(<div className={classes.container}>
+      <div className={classes.dpbg}>
+      <img className={classes.dp} src={imageURL} alt='error'/>
+      </div>
               
-        <img src={imageURL} alt='error'/>
-        <label htmlFor="myfile">Select a file</label>
+        {/* <label htmlFor="myfile">Select a file</label>
         <input type="file" accept="image/*" id='myfile' onChange={imageChangeHandler} className={classes.file}/>
-        <button onClick={imageUploadHandler}>upload</button>
+        <button onClick={imageUploadHandler}>upload</button> */}
 
-        <h1>{userName}</h1>
+        <h1 className={classes.username}>{userName}</h1>
 
-        <h2>Your Email</h2>
-        <p>{currentUser?.email}</p>
+        <p className={classes.bio}>
+          <img className={classes.quote} src={quotel}/>Passionate about my work. In love with food. Dedicated to spreading happiness.<img className={classes.quote} src={quoter}/>
+        </p>
+        <div className={classes.aboutborder}>
+        <div className={classes.about}>
+            <div className={classes.infodiv}><img className={classes.infoimg} src={location}/><h2 className={classes.info}>Lives in Hyderabad</h2></div>
+            <div className={classes.infodiv}><img className={classes.infoimg} src={call}/><h2 className={classes.info}>Give a call at +1234567890</h2></div>
+            <div className={classes.infodiv}><img className={classes.infoimg} src={mail}/><h2 className={classes.info}>Drop a mail at {currentUser?.email}</h2></div>
+        </div>
+        </div>
+        
+        
              
 
         {form && <form onSubmit={infoChangeHandler}>
@@ -81,9 +99,8 @@ const UserProfile = () => {
             <button>Done</button>
         </form>}
 
-       {!form && <button onClick={showFormHandler}>change</button>}
+       {/* {!form && <button onClick={showFormHandler}>change</button>} */}
 
-        <button onClick={test}>test</button>
        
        {loading && <p>loading...</p>} 
         

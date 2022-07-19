@@ -1,14 +1,16 @@
 import UserProfile from "../components/UserProfile";
 import Navbar from "../components/Navbar";
-
+import classes from './Profile.module.css'
 const Profile = () => {
 
     return (
         <>
         <Navbar/>
-        <h1>Welcome to Your Profile!</h1> 
+        <div className={classes.profile}>
         <UserProfile/>
+        </div>
         </>
+        
     )
 }
 

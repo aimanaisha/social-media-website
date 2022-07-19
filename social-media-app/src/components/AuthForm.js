@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom"
 import classes from './AuthForm.module.css'
 import { signup, login } from "../store/AuthContext"
 import { useAuth } from "../store/AuthContext"
+import google from '../assets/google.png'
 
 const AuthForm = () => {
       
@@ -63,23 +64,45 @@ const AuthForm = () => {
     
         return(
         
-            <form onSubmit={submitHandler} className={classes.container}>
-              <h1 className={classes.h1}>{signIn ? 'Sign in to Your Account' : "Let's get started!"}</h1>
-                <section>
-                    <label htmlFor="email" required className={classes.label}>Your Email </label>
-                    <input type='email' id='email' ref={emailRef} className={classes.input}/>
+            <form onSubmit={submitHandler}>
 
-                    <label htmlFor="password" required className={classes.label}>Your Password </label>
-                    <input type='password' id='password' ref={passwordRef} className={classes.input}/>
+                <div className={classes.container}>
 
-                    {!signIn && <><label htmlFor="confirmPassword" required className={classes.label}>Confirm Password </label>
-                    <input type='password' id='confirmPassword' ref={confirmPasswordRef} className={classes.input}/></>}
+                    <div className={classes.leftbox}>
 
-                </section>
-                <section>
-                    <button className={classes.button}>{signIn ? 'Login In' : 'Sign Up'}</button>
-                    <button className={classes.link} type="button" onClick={loginToggleHandler}>{signIn ? "Don't have an account? Create a New one!" : 'Already have an account? Log In'}</button>
-                </section>
+                        <h1 className={classes.h1}>{signIn ? 'Sign in' : "Create New Account"}</h1>
+                        
+                    <input type='email' id='email' ref={emailRef} className={classes.input} placeholder="Your Email"/>
+
+                    
+                    <input type='password' id='password' ref={passwordRef} className={classes.input} placeholder="Your Password"/>
+
+                    {!signIn &&
+                    <input type='password' id='confirmPassword' ref={confirmPasswordRef} className={classes.input} placeholder='Confirm Password'/>}
+                
+                    
+                        
+
+                        <button className={classes.loginbutton}>{signIn ? 'Login In' : 'Sign Up'}</button>
+                        <p>OR</p>
+                        <button className={classes.googlebutton}><img className={classes.google} src={google}/><span>Login With Google</span></button>
+                        {signIn && <p className={classes.password}>Forgot Password?</p>}
+                    
+                    
+                    </div>
+
+                    <div className={classes.rightbox}>
+                    <h1 className={classes.adventure}>“Adventure, without it,</h1>   <h1 className={classes.adventure}>why live?”</h1>                 
+                        <h2 className={classes.started}>LET'S GET STARTED!</h2>
+                        
+                        <h3 className={classes.noaccount} onClick={loginToggleHandler}>{signIn ? "Don't have an account?" : 'Already a Member?'}</h3>
+                        <button className={classes.signupbutton} type="button" onClick={loginToggleHandler}>{signIn ? "Start for Free" : 'Log In'}</button>
+
+                    </div>
+
+                </div>
+
+        
                 
             </form>
             

@@ -1,18 +1,13 @@
 import AuthForm from "../components/AuthForm";
-import './Login.css'
+import classes from './Login.module.css'
 
-const Login = (props) => {
-   return (<>
-   <div className="box">
-      <div className="decoration">
-
-      </div>
-      <div className="form">
+const Login = () => {
+   return (
+   <div className={classes.box}>
        <AuthForm/>
-      </div>
    </div>
    
-   </>)
+   )
 }
 
 export default Login
