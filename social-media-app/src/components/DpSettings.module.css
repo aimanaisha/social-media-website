@@ -1,0 +1,14 @@
+.upload{
+    background-color: #CDB4DB;
+    border-radius: 0px;
+    border: solid black 2px; 
+    color: black;
+    width: 130px;
+    height: 40px;
+    font-family: Mali, cursive;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+.head{
+    font-weight: 300;
+}

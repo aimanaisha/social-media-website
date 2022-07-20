@@ -4,21 +4,23 @@
 
 .border{
     margin: 2rem;
-    padding: 3rem;
+    padding: 2rem;
     border-radius: 15px;
-    border: solid rgb(71, 73, 77) 3px;
-    background-image: url("data:image/svg+xml,%3Csvg width='70' height='70' viewBox='0 0 70 70' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2393caf9' fill-opacity='0.59' fill-rule='evenodd'%3E%3Cpath d='M0 0h35v35H0V0zm5 5h25v25H5V5zm5 5h15v15H10V10zm5 5h5v5h-5v-5zM40 5h25v25H40V5zm5 5h15v15H45V10zm5 5h5v5h-5v-5zM70 35H35v35h35V35zm-5 5H40v25h25V40zm-5 5H45v15h15V45zm-5 5h-5v5h5v-5zM30 40H5v25h25V40zm-5 5H10v15h15V45zm-5 5h-5v5h5v-5z'/%3E%3C/g%3E%3C/svg%3E");   
     display: inline-block;
     position: fixed;
     left: 100px;
+    background-image: repeating-linear-gradient(0deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(90deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(180deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(270deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px);
+    background-size: 3px 100%, 100% 3px, 3px 100% , 100% 3px;
+    background-position: 0 0, 0 0, 100% 0, 0 100%;
+    background-repeat: no-repeat;
 }
 .container{
-    border: solid rgb(71, 73, 77) 3px;
+    border: solid rgb(71, 73, 77) 2px;
     display: inline-block;
     padding: 2.5rem 1.5rem;
     padding-bottom: 0px;
     border-radius: 15px;
-    background-color: white;
+    background-color: #f7f7f8;
     text-align: center;
 }
 .head{
@@ -51,7 +53,6 @@
     font-family: 'Mali', cursive;
     font-size: 1.5rem;
     display: block;
-    /* margin: 2rem 0px; */
 }
 .textarea{
     display: block;
@@ -63,26 +64,32 @@
 }
 .discard{
     background-color: #F8AD9D;
-    border-radius: 0px;
+    border-radius: 9px;
     border: solid black 2px; 
     color: black;
     padding: 0.4rem 2rem;
     font-family: Mali, cursive;
     font-size: 1.1rem;
-    margin-right: 10px
+    margin-right: 10px;
+    cursor: pointer;
 }
 .upload{
     background-color: #CDB4DB;
-    border-radius: 0px;
+    border-radius: 9px;
     border: solid black 2px; 
     color: black;
     width: 130px;
     height: 40px;
     font-family: Mali, cursive;
     font-size: 1.1rem;
+    cursor: pointer;
 }
 .btns{
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
+}
+.btnB{
+    display: flex;
+    justify-content: center;
 }

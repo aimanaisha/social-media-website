@@ -1,23 +1,20 @@
 import { useState, useEffect, useRef} from "react"
 import classes from './UserProfile.module.css'
-import { useAuth, upload, username } from "../store/AuthContext"
+import { useAuth, username } from "../store/AuthContext"
 import call from '../assets/call.png'
 import mail from '../assets/mail.png'
 import location from '../assets/location.png'
 import quotel from '../assets/quotel.png'
 import quoter from '../assets/quoter.png'
 import settings from '../assets/settings.png'
-import Modal from "../Layout/Modal"
 import DpSettings from "./DpSettings"
+import { Link } from "react-router-dom"
+// import ProfileSettings from "./ProfileSettings"
 
 const UserProfile = () => {
-
-    const currentUser = useAuth() 
-    const usernameRef = useRef()
-    
-    const [loading, setLoading] = useState(false)
+        
+    const currentUser = useAuth()         
     const [userName, setUserName] = useState('Add a username')
-    const [form, setForm] = useState(false)
     const [dp, setDp] = useState('https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png')
     const [showModal, setShowModal] = useState(false)
 
@@ -28,7 +25,6 @@ const UserProfile = () => {
     }, [currentUser])
 
   const showModalHandler = () => {
-    console.log('hi')
     setShowModal(true)
   }
 
@@ -41,17 +37,6 @@ const UserProfile = () => {
         }
       }, [currentUser])
 
-      const showFormHandler = () => {
-        setForm(true)
-      }
-
-    const  infoChangeHandler = async (e) => {
-        e.preventDefault()
-        setLoading(true)
-        setForm(false)
-        await username(usernameRef.current.value, currentUser)
-        setLoading(false)
-    }
     const test = ()=>{
       console.log(currentUser)
     }
@@ -59,21 +44,16 @@ const UserProfile = () => {
 
     return(
       <>
-            {showModal && <DpSettings onHideCart={hideModalHandler} />}
+            {showModal && <DpSettings onHideBox={hideModalHandler} />}
 
       <div className={classes.container}>
       <div className={classes.dpbg}>
       <img className={classes.dp} src={dp} alt='error'/>
       </div>
-      <img className={classes.dpsettings} src={settings} onClick={showModalHandler}/>     
-
+      <img className={classes.dpsettings} src={settings} alt='' onClick={showModalHandler}/>     
         <h1 className={classes.username}>{userName}</h1>
-      <img className={classes.unamesettings} src={settings} alt='error'/>        
-
         <p className={classes.bio}>
           <img className={classes.quote} src={quotel} alt='error'/>Passionate about my work. In love with food. Dedicated to spreading happiness.<img className={classes.quote} alt='error' src={quoter}/>
-      <img className={classes.quotesettings} src={settings} alt='error'/>        
-
         </p>
         <div className={classes.aboutborder}>
         <div className={classes.about}>
@@ -82,22 +62,19 @@ const UserProfile = () => {
             <div className={classes.infodiv}><img className={classes.infoimg} alt='error' src={mail}/><h2 className={classes.info}>Drop a mail at {currentUser?.email}</h2></div>
         </div>
         </div>
-      <img className={classes.biosettings} alt='error' src={settings}/>        
-
-        
-        
+      {/* <img className={classes.biosettings} alt='error' src={settings}/>         */}
              
-
-        {form && <form onSubmit={infoChangeHandler}>
+        {/* {form && <form onSubmit={infoChangeHandler}>
             <label htmlFor="uname">Enter Username</label>
             <input type='text' id='uname' ref={usernameRef}/>
             <button>Done</button>
-        </form>}
+        </form>} */}
 
        {/* {!form && <button onClick={showFormHandler}>change</button>} */}
+      <br/>
+       {/* <button className={classes.settings} onClick={test}></button> */}
 
-       <button onClick={test}>test</button>
-       {loading && <p>loading...</p>} 
+       <Link to='/settings' className={classes.settings}> <img className={classes.biosettings} alt='error' src={settings}/> </Link>
         
         </div>
       </>

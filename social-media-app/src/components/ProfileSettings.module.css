@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+
+.container{
+    border: solid black 2px;
+    padding: 2rem 1.5rem;
+    border-radius: 22px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    background-color: #CDEAC0;
+    margin: auto;
+}
+.box{
+    margin: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.input{
+    border: solid black 2px;
+    border-radius: 8px;
+    height: 45px;
+    width: 450px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: rgb(92, 92, 92);
+
+}
+.label{
+    font-family: 'Mali', cursive;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+.discardbtn{
+    background-color: #F8AD9D;
+    border-radius: 5px;
+    cursor: pointer;
+    border: solid black 2px; 
+    color: black;
+    padding: 0.4rem 3.3rem;
+    font-family: Mali, cursive;
+    font-size: 1.1rem;
+    width: fit-content;
+}
+.updatebtn{
+    background-color: #CDB4DB;
+    border-radius: 5px;
+    cursor: pointer;
+    border: solid black 2px; 
+    color: black;
+    padding: 0.4rem 2rem;
+    font-family: Mali, cursive;
+    font-size: 1.1rem;
+    width: fit-content;
+}
+.btnbox{
+    margin: 1rem 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.password{
+    background-color: #eef1ed;
+    border-radius: 5px;
+    cursor: pointer;
+    border: solid black 2px; 
+    color: black;
+    padding: 0.4rem 2rem;
+    font-family: Mali, cursive;
+    font-size: 1.1rem;
+    width: fit-content;
+    margin: auto;
+}
+.biosettings{    
+    height: 60px;
+    border-radius: 50%;
+    border: solid black 2px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 2rem;
+    background-color: white;
+}

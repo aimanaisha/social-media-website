@@ -1,8 +1,7 @@
 import { useState, useRef} from "react"
 import { useHistory } from "react-router-dom"
 import classes from './AuthForm.module.css'
-import { signup, login } from "../store/AuthContext"
-import { useAuth } from "../store/AuthContext"
+import { signup, login, signInWithGoogle, useAuth } from "../store/AuthContext"
 import google from '../assets/google.png'
 
 const AuthForm = () => {
@@ -18,6 +17,9 @@ const AuthForm = () => {
 
         const loginToggleHandler = () => {
             setSignIn((prevState) => !prevState)
+        }
+        const googleLogin = () => {
+            signInWithGoogle()
         }
             
         const submitHandler = (event) => {
@@ -85,7 +87,7 @@ const AuthForm = () => {
 
                         <button className={classes.loginbutton}>{signIn ? 'Login In' : 'Sign Up'}</button>
                         <p>OR</p>
-                        <button className={classes.googlebutton}><img className={classes.google} src={google}/><span>Login With Google</span></button>
+                        <button className={classes.googlebutton} onClick={googleLogin}><img className={classes.google} src={google}/><span>Login With Google</span></button>
                         {signIn && <p className={classes.password}>Forgot Password?</p>}
                     
                     

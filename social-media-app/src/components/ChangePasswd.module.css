@@ -1,0 +1,33 @@
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.head{
+    font-weight: 300;
+    font-size: 1.7rem;
+}
+.input{
+    border: solid black 2px;
+    border-radius: 7px;
+    height: 35px;
+    width: 450px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    padding-left: 15px;
+    color: rgb(92, 92, 92);
+    margin: 1rem auto;
+}
+.updatebtn{
+    background-color: #CDB4DB;
+    border-radius: 5px;
+    cursor: pointer;
+    border: solid black 2px; 
+    color: black;
+    padding: 0.4rem 2rem;
+    font-family: Mali, cursive;
+    font-size: 1.1rem;
+    width: fit-content;
+    margin: auto
+}

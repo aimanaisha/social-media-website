@@ -74,18 +74,25 @@
     height: 35px;
     display: block;
     margin-left: 59%;
+    border-radius: 50%;
+    border: solid black 2px;
+    cursor: pointer;
+    padding: 8px;
+    background-color: white;
 }
-.unamesettings{
-    height: 35px;
-    margin-left: 18px;
-    transform: translateY(8px);
-}
-.quotesettings{    
-    height: 35px;
-    transform: translateY(18px);    
+.settings{
+    border-radius: 50%;
+    padding: 0.5rem;
+    border: solid black 2px;
+    position: fixed;
+    top: 90%;
+    left: 94%;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    background-color: white;
 }
 .biosettings{    
-    height: 35px;
-    transform: translateY(98px);
-    
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
 }

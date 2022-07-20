@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
 import { storage } from "./firebase.js";
 import { uploadBytes, ref, getDownloadURL } from "firebase/storage";
 
@@ -38,6 +38,11 @@ export async function upload(file, currentUser) {
 export async function username(displayName, currentUser){
     updateProfile(currentUser, {displayName})
 }
+
+export const signInWithGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
+  }
 
 
 

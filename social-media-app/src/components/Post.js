@@ -19,12 +19,12 @@ const Post = () => {
         marginTop: '20px'
     }
     const stylesA = {
-        backgroundColor: 'white',
+        backgroundColor: '#f7f7f8',
         padding: '1.5rem 1.9rem',
         boxShadow: 'none'
     }
     const stylesB = {
-        backgroundColor: 'white',
+        backgroundColor: '#f7f7f8',
         margin: '0px',
         padding: '0px',
         boxShadow: 'none',
@@ -83,18 +83,18 @@ const Post = () => {
                 withPreview={preview}
                 buttonText='Choose a Picture'
                 withLabel={false}
-                singleImage={false}
+                singleImage={true}
                 onChange={selectFileHandler}/>
 
                 {/* {preview && <label htmlFor="caption" className={classes.caption}>Add a Caption</label>} */}
                 {/* {preview && <textarea id='caption' placeholder="What's On Your Mind?" className={preview? classes.textarea2 : classes.textarea} maxLength='500' rows='2' cols='45'/>} */}
 
-            <div className={classes.btns}>
+            <div className={preview? classes.btns : classes.btnB}>
             {preview &&   <button className={classes.discard} onClick={discardFileHandler}>Discard</button>}                     
             {preview && <button onClick={uploadFileHandler} className={classes.upload}>Upload</button> }
             </div>
             
-        </div>
+        </div> 
         </div>
         
              
