@@ -1,13 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Mali:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
+.feed{
+    display: inline-block;
 
+}
 .post{
     background-color: #F3F2FB;
     width: 500px;
     padding: 1.4rem;
-    margin: 3rem;
-    margin-left: 25rem;
+    margin-bottom: 3rem;
+    margin-left: 52rem;
     border-radius: 15px;
     background-image: repeating-linear-gradient(0deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(90deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(180deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(270deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px);
     background-size: 3px 100%, 100% 3px, 3px 100% , 100% 3px;
@@ -48,7 +51,7 @@
 .postedimg{
     height: 560px;
     width: 500px;
-    border: solid rgb(133, 130, 130) 1.5px;
+    border: solid rgb(67, 67, 67) 2px;
     border-radius: 10px;
 }
 .button{

@@ -7,19 +7,21 @@
     
 }
 .ul{
-    list-style: none;    
-    background-color: brown;
-    margin: 0px;
     position: relative;
-
-    /* z-index: 200; */
+    display: flex;
+    margin-left: 20px;
+    justify-content: end;
 }
-.li{
-    text-decoration: none;
+.left{
+    display: flex;
 }
-
 .button{
     border: none;
-   
+    background: none;
     cursor: pointer;
+
+}
+.image{
+    height: 70px;
+    margin: 1rem;
 }
