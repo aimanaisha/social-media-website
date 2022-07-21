@@ -30,27 +30,24 @@ const ProfileSettings = () => {
     const phoneHandler = (e) => {
         setInfo({...info, phone: e.target.value.trim()})
     }
-    const showModalHandler = () => {
-        setShowModal(true)
-      }
+    // const showModalHandler = () => {
+    //     setShowModal(true)
+    //   }
     
-    const hideModalHandler = () => {
-      setShowModal(false)
-    }
+    // const hideModalHandler = () => {
+    //   setShowModal(false)
+    // }
     const updateInfoHandler = async () => {
-        console.log(info)
+
         const collectionRef = collection(db, 'user_info')
-        const payload = {dob: info.dob, bio: info.dob, location: info.location, phone: info.phone, uid: currentUser.uid}
+        const payload = {dob: info.dob, bio: info.bio, location: info.location, phone: info.phone, uid: currentUser.uid}
         await addDoc(collectionRef, payload) 
     }
-    // const  infoChangeHandler = async (e) => {
-    //     e.preventDefault()
-    //     await username(usernameRef.current.value, currentUser)
-    // }
+    
 
     return(
         <div>
-            {showModal && <ChangePasswd onHideBox={hideModalHandler} />}
+            {/* {showModal && <ChangePasswd onHideBox={hideModalHandler} />} */}
             <Link to='/profile' className={classes.settings}> <img className={classes.biosettings} alt='error' src={profile}/> </Link>
 
             <div className={classes.container}>
@@ -74,10 +71,9 @@ const ProfileSettings = () => {
                     <button className={classes.discardbtn}>Discard</button>
                     <button className={classes.updatebtn} onClick={updateInfoHandler}>Make Changes</button>                   
                 </div>
-                <div className={classes.box}>
+                {/* <div className={classes.box}>
                 <button className={classes.password} onClick={showModalHandler}>Change Password</button>
-
-                </div>
+                </div> */}
             </div>
         </div>
     )

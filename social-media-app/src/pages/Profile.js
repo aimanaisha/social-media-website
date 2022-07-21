@@ -26,7 +26,7 @@ const Profile = () => {
         getData()
     }, [])
     const testdoc = () => {
-        console.log(test)
+        console.log(currentUser)
     }
 
     return (
@@ -37,7 +37,10 @@ const Profile = () => {
         </div>
 
         <div className={classes.userfeed}>
-            <p>{loading && 'loading...'}</p>        
+            <p>{loading && 'loading...'}</p> 
+
+      <h1 className={styles.heading}>Posts</h1>
+
             
             {userData.map((data)=>{ if(currentUser.uid === data.posted_by){
                 return (<div className={classes.Userpost}>

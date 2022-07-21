@@ -1,4 +1,4 @@
-import { useState, useRef } from "react"
+import { useState } from "react"
 import ImageUploader from 'react-images-upload';
 import { uploadBytes, ref, getDownloadURL } from "firebase/storage";
 import { storage, db } from "../store/firebase";
@@ -64,7 +64,7 @@ const Post = () => {
         console.log(photoURL)
         
         const collectionRef = collection(db, 'file_posts')
-        const payload = {file_name: file.name, file_url: photoURL, posted_by: currentUser.uid, user_dp: currentUser.photoURL, posted_on: current.toLocaleDateString(), posted_at: current.toLocaleTimeString(), caption: text}
+        const payload = {file_name: file.name, file_url: photoURL, posted_by: currentUser.displayName, user_dp: currentUser.photoURL, posted_on: current.toLocaleDateString(), posted_at: current.toLocaleTimeString(), caption: text}
         await addDoc(collectionRef, payload)       
         setLoading(false)
         setText('')

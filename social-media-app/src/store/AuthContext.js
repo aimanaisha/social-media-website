@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
+import { getAuth, updatePassword, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
 import { storage } from "./firebase.js";
 import { uploadBytes, ref, getDownloadURL } from "firebase/storage";
 
@@ -32,11 +32,15 @@ export async function upload(file, currentUser) {
     const fileRef = ref(storage, `profile-pictures/${currentUser.uid}.png` )
     await uploadBytes(fileRef, file)
     const photoURL = await getDownloadURL(fileRef);
-    updateProfile(currentUser, {photoURL});
+    await updateProfile(currentUser, {photoURL});
 }
 
 export async function username(displayName, currentUser){
-    updateProfile(currentUser, {displayName})
+  await  updateProfile(currentUser, {displayName})
+}
+
+export async function ChangePassword(newPassword, currentUser){
+  await updatePassword(currentUser, newPassword)
 }
 
 export const signInWithGoogle = () => {

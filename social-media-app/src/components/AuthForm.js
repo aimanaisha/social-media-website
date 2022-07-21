@@ -43,7 +43,7 @@ const AuthForm = () => {
                 if(!signIn){                 
                     try{
                         signup(enteredEmail, enteredPassword);
-                        history.replace('/profile')
+                        history.replace('/AccInfo')
                     }
                     catch(error){
                         alert(error)
@@ -87,7 +87,7 @@ const AuthForm = () => {
 
                         <button className={classes.loginbutton}>{signIn ? 'Login In' : 'Sign Up'}</button>
                         <p>OR</p>
-                        <button className={classes.googlebutton} onClick={googleLogin}><img className={classes.google} src={google}/><span>Login With Google</span></button>
+                        <button className={classes.googlebutton} onClick={googleLogin}><img className={classes.google} src={google} alt=''/><span>Login With Google</span></button>
                         {signIn && <p className={classes.password}>Forgot Password?</p>}
                     
                     

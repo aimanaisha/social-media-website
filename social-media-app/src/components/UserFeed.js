@@ -24,7 +24,7 @@ const UserFeed = () => {
         getData()
     }, [])
     const testdoc = () => {
-        console.log(test)
+        console.log(currentUser)
     }
 
     return(
