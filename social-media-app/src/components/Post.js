@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import ImageUploader from 'react-images-upload';
 import { uploadBytes, ref, getDownloadURL } from "firebase/storage";
 import { storage, db } from "../store/firebase";
@@ -8,6 +8,9 @@ import classes from './Post.module.css'
 
 
 const Post = () => {
+
+    const currentUser = useAuth()
+    var current = new Date();
     const btnstyles = {
         backgroundColor:'#CDB4DB',
         borderRadius: '0px',
@@ -31,9 +34,13 @@ const Post = () => {
         width: '450px'
     }
     const [file, setFile] = useState(null)
-    const currentUser = useAuth()
     const [loading, setLoading] = useState(false)
     const [preview, setPreview] = useState(false)
+    const [text, setText] = useState('')
+
+    const CaptionHandler = (e) => {
+        setText(e.target.value.trim())
+    }
 
     const selectFileHandler = (event) => {
         if(event[0]){
@@ -57,9 +64,10 @@ const Post = () => {
         console.log(photoURL)
         
         const collectionRef = collection(db, 'file_posts')
-        const payload = {file_name: file.name, file_url: photoURL, posted_by: currentUser.uid}
+        const payload = {file_name: file.name, file_url: photoURL, posted_by: currentUser.uid, user_dp: currentUser.photoURL, posted_on: current.toLocaleDateString(), posted_at: current.toLocaleTimeString(), caption: text}
         await addDoc(collectionRef, payload)       
         setLoading(false)
+        setText('')
         }
         else{
             alert('choose a file')
@@ -86,8 +94,8 @@ const Post = () => {
                 singleImage={true}
                 onChange={selectFileHandler}/>
 
-                {/* {preview && <label htmlFor="caption" className={classes.caption}>Add a Caption</label>} */}
-                {/* {preview && <textarea id='caption' placeholder="What's On Your Mind?" className={preview? classes.textarea2 : classes.textarea} maxLength='500' rows='2' cols='45'/>} */}
+                {preview && <label htmlFor="caption" className={classes.caption}>Add a Caption</label>}
+                {preview && <textarea id='caption' placeholder="What's On Your Mind?" className={classes.textarea} maxLength='500' rows='2' cols='45' onChange={CaptionHandler}/>}
 
             <div className={preview? classes.btns : classes.btnB}>
             {preview &&   <button className={classes.discard} onClick={discardFileHandler}>Discard</button>}                     

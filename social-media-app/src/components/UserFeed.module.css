@@ -2,15 +2,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
 .feed{
-    display: inline-block;
-
+    /* display: inline-block; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.userfeed{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .post{
     background-color: #f7f7f8;
     width: 500px;
     padding: 1.4rem;
     margin-bottom: 3rem;
-    margin-left: 52rem;
+    margin-left: 9rem;
+    border-radius: 15px;
+    background-image: repeating-linear-gradient(0deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(90deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(180deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(270deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px);
+    background-size: 3px 100%, 100% 3px, 3px 100% , 100% 3px;
+    background-position: 0 0, 0 0, 100% 0, 0 100%;
+    background-repeat: no-repeat;
+}
+.Userpost{
+    background-color: #f7f7f8;
+    width: 500px;
+    padding: 1.4rem;
+    margin-bottom: 3rem;
+    
     border-radius: 15px;
     background-image: repeating-linear-gradient(0deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(90deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(180deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(270deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px);
     background-size: 3px 100%, 100% 3px, 3px 100% , 100% 3px;
@@ -64,13 +83,18 @@
 .date{
     font-family: 'Poppins', sans-serif;
     color: #51555C;
-    font-size: medium;
+    font-size: small;
     margin: 0px;
-    margin-top: 10px;
     display: inline-block;
     font-weight: 300;
 }
 .bottom{
     display: flex;
     justify-content: space-between;
+}
+.timestamp{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    align-items: center;
 }
