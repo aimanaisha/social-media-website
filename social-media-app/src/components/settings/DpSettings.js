@@ -1,6 +1,6 @@
-import { useAuth, upload } from "../store/AuthContext"
+import { useAuth, upload } from "../../store/AuthContext"
 import { useState} from "react"
-import Modal from "../Layout/Modal"
+import Modal from "../../Layout/Modal"
 import classes from './DpSettings.module.css'
 import ImageUploader from 'react-images-upload';
 

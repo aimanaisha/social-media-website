@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react"
 import classes from './UserFeed.module.css'
-import { db } from "../store/firebase";
+import { db } from "../../store/firebase";
 import { collection,getDocs } from "firebase/firestore";
 import DisplayPost from "./DisplayPost";
+import { getAuth } from "firebase/auth";
 
 
 const UserFeed = () => {
 
+    const auth = getAuth(); 
     const [userData, setUserData] = useState([])
     const [loading, setLoading] = useState(false)
     const collectionRef = collection(db, 'file_posts')
@@ -14,12 +16,16 @@ const UserFeed = () => {
     useEffect(()=> {
         setLoading(true)
         const getData = async () => {
-            const data = await getDocs(collectionRef);
-            setUserData(data.docs.map((doc) => ({...doc.data(), id: doc.id })))
-            setLoading(false)
+            if(auth.currentUser){
+                const data = await getDocs(collectionRef);
+                setUserData(data.docs.map((doc) => ({...doc.data(), id: doc.id })))
+                setLoading(false)
+            }else{
+                alert('error')
+            }             
         }
         getData()
-    }, [collectionRef])
+    }, [auth])
     
     
     return(
@@ -30,8 +36,7 @@ const UserFeed = () => {
                     <DisplayPost data={data} key={data.id}/>
                 )                        
         })}
-        </div>
-        
+        </div>        
     )
 }
 

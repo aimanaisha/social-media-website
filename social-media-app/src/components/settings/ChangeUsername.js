@@ -1,6 +1,6 @@
-import Modal from "../Layout/Modal"
+import Modal from "../../Layout/Modal"
 import classes from './ChangePasswd.module.css'
-import { username, useAuth } from "../store/AuthContext"
+import { username, useAuth } from "../../store/AuthContext"
 import { useState } from "react"
 
 

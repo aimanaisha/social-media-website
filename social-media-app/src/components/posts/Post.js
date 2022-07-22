@@ -1,9 +1,9 @@
 import { useState } from "react"
 import ImageUploader from 'react-images-upload';
 import { uploadBytes, ref, getDownloadURL } from "firebase/storage";
-import { storage, db } from "../store/firebase";
+import { storage, db } from "../../store/firebase";
 import { addDoc, collection } from "firebase/firestore";
-import { useAuth} from "../store/AuthContext"
+import { useAuth} from "../../store/AuthContext"
 import classes from './Post.module.css'
 
 

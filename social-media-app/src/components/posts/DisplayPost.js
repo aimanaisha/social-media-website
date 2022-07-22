@@ -1,8 +1,8 @@
 import { useState } from "react"
 import classes from './UserFeed.module.css'
-import like from '../assets/like1.png'
-import comment from '../assets/comment1.png'
-import defaultDp from '../assets/defaultDp.png'
+import like from '../../assets/like1.png'
+import comment from '../../assets/comment1.png'
+import defaultDp from '../../assets/defaultDp.png'
 import Comments from "./Comments";
 
 const DisplayPost = (props) => {

@@ -1,9 +1,9 @@
-import Modal from "../Layout/Modal"
+import Modal from "../../Layout/Modal"
 import { useState } from "react"
-import classes from './ChangePasswd.module.css'
+import classes from '../settings/ChangePasswd.module.css'
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
-import { useAuth} from "../store/AuthContext"
-import { db } from "../store/firebase";
+import { useAuth} from "../../store/AuthContext"
+import { db } from "../../store/firebase";
 
 
 const Comments = (props) => {

@@ -3,7 +3,7 @@ import Profile from './pages/Profile';
 import Home from './pages/Home'
 import {Route, Switch, Redirect} from 'react-router-dom'
 import { useAuth } from './store/AuthContext';
-import ProfileSettings from './components/ProfileSettings';
+import ProfileSettings from './components/settings/ProfileSettings';
 import AccInfo from './components/AccInfo';
 
 const App = () => {

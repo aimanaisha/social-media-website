@@ -1,5 +1,5 @@
 import profile from '../assets/profile.png'
-import classes from './ProfileSettings.module.css'
+import classes from './settings/ProfileSettings.module.css'
 import { Link } from "react-router-dom"
 import { useState } from 'react'
 import { username } from '../store/AuthContext'

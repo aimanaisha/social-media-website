@@ -2,10 +2,10 @@ import UserProfile from "../components/UserProfile";
 import Navbar from "../components/Navbar";
 import styles from './Profile.module.css'
 import { useEffect, useState } from "react"
-import classes from '../components/UserFeed.module.css'
+import classes from '../components/posts/UserFeed.module.css'
 import { db } from "../store/firebase";
 import { collection,getDocs, query, where } from "firebase/firestore";
-import DisplayPost from "../components/DisplayPost";
+import DisplayPost from "../components/posts/DisplayPost";
 import { getAuth } from "firebase/auth";
 
 const Profile = () => {
@@ -26,7 +26,7 @@ const Profile = () => {
                 setUserData(data.docs.map((doc) => ({...doc.data(), id: doc.id })))
                 setLoading(false)
             }else{
-                console.log('error')
+                alert('error')
             }            
         }
         getData()
@@ -43,13 +43,10 @@ const Profile = () => {
             <p>{loading && 'loading...'}</p> 
             <h1 className={styles.heading}>Posts</h1>
             {userData.map((data)=>{
-            return(
-                <div key={data.id}>
-                <DisplayPost data={data} />
-                </div>
+                return(
+                    <DisplayPost data={data} key={data.id}/>
             )                        
-        })}
-            
+        })}            
         </div>
         </>
         

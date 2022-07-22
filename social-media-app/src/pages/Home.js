@@ -1,7 +1,7 @@
-import UserFeed from "../components/UserFeed"
+import UserFeed from "../components/posts/UserFeed"
 import Navbar from "../components/Navbar"
 import classes from './Home.module.css'
-import Post from "../components/Post"
+import Post from "../components/posts/Post"
 
 const Home = () => {
 

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
 import classes from './ProfileSettings.module.css'
-import profile from '../assets/profile.png'
+import profile from '../../assets/profile.png'
 import { getAuth } from "firebase/auth";
 import { useState, useEffect } from "react"
 import { addDoc, collection, doc, getDocs, query, where, updateDoc } from "firebase/firestore";
-import { db } from "../store/firebase";
+import { db } from "../../store/firebase";
 
 
 const ProfileSettings = () => {

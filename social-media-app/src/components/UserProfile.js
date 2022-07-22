@@ -8,12 +8,12 @@ import quotel from '../assets/quotel.png'
 import quoter from '../assets/quoter.png'
 import birthday from '../assets/birthday.png'
 import settings from '../assets/settings.png'
-import DpSettings from "./DpSettings"
+import DpSettings from "./settings/DpSettings"
 import { Link } from "react-router-dom"
 import defaultDp from '../assets/defaultDp.png'
 import { db } from "../store/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import ChangeUsername from "./ChangeUsername"
+import ChangeUsername from "./settings/ChangeUsername"
 
 const UserProfile = () => { 
         
@@ -50,13 +50,6 @@ const UserProfile = () => {
       getData()
   }, [])
 
-     
-
-    const test = ()=>{
-      console.log(userinfo)
-    }
-
-
     return(
       <>
             {showModal && <DpSettings onHideBox={hideModalHandler} />}
@@ -91,8 +84,6 @@ const UserProfile = () => {
           )
         })}
       <br/>
-       <button className={classes.settings} onClick={test}></button>
-
        <Link to='/settings' className={classes.settings}> <img className={classes.biosettings} alt='error' src={settings}/> </Link>
         
         </div>
