@@ -18,8 +18,8 @@ const ChangeUsername = (props) => {
             alert('Please set a Username')
         }
         else{
-            await username(userName, currentUser)
             props.onHideBox() 
+            await username(userName, currentUser)
             setUserName('')            
         } 
     }

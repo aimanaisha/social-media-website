@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import classes from './UserProfile.module.css'
-import { useAuth} from "../store/AuthContext"
+import { getAuth } from "firebase/auth";
 import call from '../assets/call.png'
 import mail from '../assets/mail.png'
 import location from '../assets/location.png'
@@ -12,12 +12,12 @@ import DpSettings from "./DpSettings"
 import { Link } from "react-router-dom"
 import defaultDp from '../assets/defaultDp.png'
 import { db } from "../store/firebase";
-import { collection,getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import ChangeUsername from "./ChangeUsername"
 
 const UserProfile = () => { 
         
-    const currentUser = useAuth()         
+    const auth = getAuth();         
     const [userName, setUserName] = useState('Username')
     const [dp, setDp] = useState(defaultDp)
     const [showModal, setShowModal] = useState(false)
@@ -29,24 +29,28 @@ const UserProfile = () => {
     const hideModalAHandler = () => { setShowModalA(false) }
 
     useEffect(() => {
-      if (currentUser?.photoURL) {
-        setDp(currentUser.photoURL)
+      if (auth.currentUser?.photoURL) {
+        setDp(auth.currentUser.photoURL)
       }
-    }, [currentUser])
+    }, [auth.currentUser.photoURL])
+
+    useEffect(() => {
+      if (auth.currentUser?.displayName) {
+        setUserName(auth.currentUser.displayName)
+      }
+    }, [auth.currentUser.displayName])
+
 
     useEffect(()=> {      
       const getData = async () => {
-          const data = await getDocs(collection(db, 'user_info'));
-            setUserinfo(data.docs.map((doc) => ({...doc.data()})))
+            const q = query(collection(db, 'user_info'), where("uid", "==", auth.currentUser.uid));
+            const data = await getDocs(q);
+            setUserinfo(data.docs.map((doc) => ({...doc.data(), id: doc.id })))
       }
       getData()
   }, [])
 
-      useEffect(() => {
-        if (currentUser?.displayName) {
-          setUserName(currentUser.displayName)
-        }
-      }, [currentUser])
+     
 
     const test = ()=>{
       console.log(userinfo)
@@ -69,9 +73,9 @@ const UserProfile = () => {
       </div>   
         
         {userinfo.map((data)=>{
-          if(data.uid === currentUser.uid){
+         
           return(
-            <div key={data.phone}>
+            <div key={data.id}>
             <p className={classes.bio}>
           <img className={classes.quote} src={quotel} alt='error'/>{data.bio}<img className={classes.quote} alt='error' src={quoter}/>
         </p>
@@ -80,11 +84,11 @@ const UserProfile = () => {
             <div className={classes.infodiv}><img className={classes.infoimg} alt='error' src={location}/><h2 className={classes.info}>Lives in {data.location}</h2></div>
             <div className={classes.infodiv}><img className={classes.infoimg} alt='error' src={call}/><h2 className={classes.info}>Give a call at {data.phone}</h2></div>
             <div className={classes.infodiv}><img className={classes.infoimg} alt='error' src={birthday}/><h2 className={classes.info}>Born on {data.dob}</h2></div>
-            <div className={classes.infodiv}><img className={classes.infoimg} alt='error' src={mail}/><h2 className={classes.info}>Drop a mail at {currentUser?.email}</h2></div>
+            <div className={classes.infodiv}><img className={classes.infoimg} alt='error' src={mail}/><h2 className={classes.info}>Drop a mail at {auth.currentUser?.email}</h2></div>
         </div>
         </div>
             </div>
-          )}
+          )
         })}
       <br/>
        <button className={classes.settings} onClick={test}></button>

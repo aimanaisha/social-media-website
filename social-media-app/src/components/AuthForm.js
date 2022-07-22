@@ -1,7 +1,7 @@
 import { useState, useRef} from "react"
 import { useHistory } from "react-router-dom"
 import classes from './AuthForm.module.css'
-import { signup, login, signInWithGoogle, useAuth } from "../store/AuthContext"
+import { signup, login, signInWithGoogle } from "../store/AuthContext"
 import google from '../assets/google.png'
 
 const AuthForm = () => {
@@ -13,7 +13,6 @@ const AuthForm = () => {
     const passwordRef = useRef()
     const confirmPasswordRef = useRef()
 
-    const currentUser = useAuth()
 
         const loginToggleHandler = () => {
             setSignIn((prevState) => !prevState)
