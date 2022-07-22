@@ -71,7 +71,7 @@ const UserProfile = () => {
         {userinfo.map((data)=>{
           if(data.uid === currentUser.uid){
           return(
-            <>
+            <div key={data.phone}>
             <p className={classes.bio}>
           <img className={classes.quote} src={quotel} alt='error'/>{data.bio}<img className={classes.quote} alt='error' src={quoter}/>
         </p>
@@ -83,7 +83,7 @@ const UserProfile = () => {
             <div className={classes.infodiv}><img className={classes.infoimg} alt='error' src={mail}/><h2 className={classes.info}>Drop a mail at {currentUser?.email}</h2></div>
         </div>
         </div>
-            </>
+            </div>
           )}
         })}
       <br/>

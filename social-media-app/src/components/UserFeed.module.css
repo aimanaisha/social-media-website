@@ -79,6 +79,7 @@
 }
 .imgbtn{
     height: 40px;
+    cursor: pointer;
 }
 .date{
     font-family: 'Poppins', sans-serif;

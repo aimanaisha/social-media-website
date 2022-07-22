@@ -18,6 +18,7 @@
     padding-left: 15px;
     color: rgb(92, 92, 92);
     margin: 1rem auto;
+    background-color: #f4f0f6;
 }
 .updatebtn{
     background-color: #CDB4DB;
@@ -30,4 +31,43 @@
     font-size: 1.1rem;
     width: fit-content;
     margin: auto
+}
+.loadbtn{
+    background-color: #CDEAC0;
+    border-radius: 5px;
+    cursor: pointer;
+    border: solid black 2px; 
+    color: black;
+    padding: 0.4rem 2rem;
+    font-family: Mali, cursive;
+    font-size: 1.1rem;
+    width: fit-content;
+    margin: 2rem;
+}
+.commentbox{
+    display: flex;
+    flex-direction: row;
+    margin: 0.9rem 0.3rem;
+    border-bottom: solid rgb(148, 137, 137) 1px;
+    padding-bottom: 0.4rem;
+}
+.dp{
+    height: 20px;
+    width: 20px;
+    border-radius: 6px;
+    border: solid #b790d4 2px;
+}
+.user{
+    margin: 0px 0.6rem;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-weight: 600;
+    color: rgb(62, 60, 64);
+    font-size: 1rem;
+    margin-top: 3px;
+}
+.comment{
+    margin: 0px;
+    text-align: left;
+    margin-top: 3px;
+
 }
