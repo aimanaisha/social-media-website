@@ -73,14 +73,6 @@
     border: solid rgb(67, 67, 67) 2px;
     border-radius: 10px;
 }
-.button{
-    border: none;
-    background-color: #f7f7f8;
-}
-.imgbtn{
-    height: 40px;
-    cursor: pointer;
-}
 .date{
     font-family: 'Poppins', sans-serif;
     color: #51555C;
@@ -98,4 +90,22 @@
     flex-direction: column;
     margin-top: 10px;
     align-items: center;
+}
+.button{
+    border: none;
+    background-color: #f7f7f8;
+}
+.like_comment{
+    display: flex;
+    align-items: flex-start;
+}
+.imgbtn{
+    height: 40px;
+    cursor: pointer;
+}
+.likes{
+    margin: 0px;
+    font-family: 'Mali', cursive;
+    cursor: pointer;
+    
 }

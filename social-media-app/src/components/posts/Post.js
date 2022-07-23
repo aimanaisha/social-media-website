@@ -34,7 +34,6 @@ const Post = () => {
         width: '450px'
     }
     const [file, setFile] = useState(null)
-    const [loading, setLoading] = useState(false)
     const [preview, setPreview] = useState(false)
     const [text, setText] = useState('')
 
@@ -50,23 +49,17 @@ const Post = () => {
         else{
             alert('Nothing is selected')
         }
-        // console.log(event[0])
     }
 
     const uploadFileHandler = async () => {
         if(file){
-            setLoading(true)
             setPreview(false)
         const fileRef = ref(storage, `posts/${currentUser.uid}/${file.name}.png` )
         await uploadBytes(fileRef, file)
         const photoURL = await getDownloadURL(fileRef);
-
-        console.log(photoURL)
-        
         const collectionRef = collection(db, 'file_posts')
         const payload = {file_name: file.name, file_url: photoURL, posted_by: currentUser.displayName, user_dp: currentUser.photoURL, posted_on: current.toLocaleDateString(), posted_at: current.toLocaleTimeString(), caption: text, uid: currentUser.uid}
         await addDoc(collectionRef, payload)       
-        setLoading(false)
         setText('')
         }
         else{
@@ -93,19 +86,15 @@ const Post = () => {
                 withLabel={false}
                 singleImage={true}
                 onChange={selectFileHandler}/>
-
                 {preview && <label htmlFor="caption" className={classes.caption}>Add a Caption</label>}
                 {preview && <textarea id='caption' placeholder="What's On Your Mind?" className={classes.textarea} maxLength='500' rows='2' cols='45' onChange={CaptionHandler}/>}
 
             <div className={preview? classes.btns : classes.btnB}>
             {preview &&   <button className={classes.discard} onClick={discardFileHandler}>Discard</button>}                     
             {preview && <button onClick={uploadFileHandler} className={classes.upload}>Upload</button> }
-            </div>
-            
+            </div>            
         </div> 
-        </div>
-        
-             
+        </div>             
     )
 } 
 export default Post

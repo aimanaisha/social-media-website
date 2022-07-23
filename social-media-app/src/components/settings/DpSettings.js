@@ -39,9 +39,9 @@ const stylesA = {
           alert('nothing is selected')
         }
     }
-    const imageUploadHandler = async () => {            
-        await  upload(photo, currentUser)  
+    const imageUploadHandler = async () => {         
         props.onHideBox()          
+        await  upload(photo, currentUser)  
     }  
 
       return(

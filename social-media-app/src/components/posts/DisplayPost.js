@@ -4,6 +4,7 @@ import like from '../../assets/like1.png'
 import comment from '../../assets/comment1.png'
 import defaultDp from '../../assets/defaultDp.png'
 import Comments from "./Comments";
+import Likes from "./Likes"
 
 const DisplayPost = (props) => {
 
@@ -27,8 +28,9 @@ const DisplayPost = (props) => {
         <p className={classes.text}>{props.data.caption}</p>
         <img className={classes.postedimg} src={props.data.file_url} alt=''/>
         <div className={classes.bottom}>
-            <div>
-                <button className={classes.button}><img className={classes.imgbtn} src={like} alt='' /></button>
+            <div className={classes.like_comment}>
+                {/* <button className={classes.button}><img className={classes.imgbtn} src={like} alt='' /></button> */}
+                <Likes postId={props.data.id}/>
                 <button className={classes.button} onClick={showModalHandler}><img className={classes.imgbtn} src={comment} alt=''/></button>
             </div>
             <div className={classes.timestamp}>

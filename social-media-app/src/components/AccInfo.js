@@ -15,16 +15,17 @@ const AccInfo = () => {
 
 
     const usernameHandler = (e) => {
-        setUserName(e.target.value.trim())
+        setUserName(e.target.value)
     }
 
     const  submitHandler = async (e) => {
         e.preventDefault()
-        if(userName === ''){
+        if(userName.trim() === ''){
             alert('Please set a Username')
         }
         else{
-            await username(userName, currentUser)
+            await username(userName.trim(), currentUser)
+            setUserName('')
             history.replace('/Profile')            
         }
     }
@@ -36,7 +37,7 @@ const AccInfo = () => {
             <div className={classes.container}>
                 <div className={classes.box}>
                     <label htmlFor="username" className={classes.label}>Set Username</label>
-                    <input type='text' id='username' className={classes.input} onChange={usernameHandler}/>
+                    <input type='text' id='username' className={classes.input} value={userName} onChange={usernameHandler}/>
                 </div>
                 <div className={classes.btnbox}>
                     <button className={classes.updatebtn} onClick={submitHandler}>Let's Go!</button>                   
