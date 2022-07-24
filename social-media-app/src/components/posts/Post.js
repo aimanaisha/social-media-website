@@ -94,14 +94,9 @@ const Post = () => {
           onChange={selectFileHandler}
         />
         {preview && (
-          <label htmlFor="caption" className={classes.caption}>
-            Add a Caption
-          </label>
-        )}
-        {preview && (
           <textarea
             id="caption"
-            placeholder="What's On Your Mind?"
+            placeholder="Add a Caption"
             className={classes.textarea}
             maxLength="500"
             rows="2"

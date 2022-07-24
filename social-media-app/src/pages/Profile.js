@@ -39,7 +39,6 @@ const Profile = () => {
       </div>
 
       <div className={classes.userfeed}>
-        <h1 className={styles.heading}>Posts</h1>
         <p>{loading && <img src={loader} />}</p>
         {userData.map((data) => {
           return <DisplayPost data={data} key={data.id} />;

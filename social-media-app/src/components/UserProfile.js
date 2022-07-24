@@ -39,13 +39,13 @@ const UserProfile = () => {
     if (auth.currentUser?.photoURL) {
       setDp(auth.currentUser.photoURL);
     }
-  }, [auth.currentUser.photoURL]);
+  }, [auth, showModal]);
 
   useEffect(() => {
     if (auth.currentUser?.displayName) {
       setUserName(auth.currentUser.displayName);
     }
-  }, [auth.currentUser.displayName]);
+  }, [auth, showModal]);
 
   useEffect(() => {
     const getData = async () => {

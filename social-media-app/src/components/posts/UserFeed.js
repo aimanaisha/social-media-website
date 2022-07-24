@@ -6,6 +6,7 @@ import DisplayPost from "./DisplayPost";
 import { getAuth } from "firebase/auth";
 import loader from "../../assets/loader.svg";
 
+
 const UserFeed = () => {
   const auth = getAuth();
   const [userData, setUserData] = useState([]);
@@ -25,6 +26,7 @@ const UserFeed = () => {
     };
     getData();
   }, [auth]);
+
 
   return (
     <div className={classes.feed}>
