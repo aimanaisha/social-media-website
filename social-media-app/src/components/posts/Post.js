@@ -22,12 +22,12 @@ const Post = () => {
         marginTop: '20px'
     }
     const stylesA = {
-        backgroundColor: '#f7f7f8',
+        backgroundColor: '#e7edf0',
         padding: '1.5rem 1.9rem',
         boxShadow: 'none'
     }
     const stylesB = {
-        backgroundColor: '#f7f7f8',
+        backgroundColor: '#e7edf0',
         margin: '0px',
         padding: '0px',
         boxShadow: 'none',

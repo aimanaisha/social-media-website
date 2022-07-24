@@ -29,7 +29,6 @@ const DisplayPost = (props) => {
         <img className={classes.postedimg} src={props.data.file_url} alt=''/>
         <div className={classes.bottom}>
             <div className={classes.like_comment}>
-                {/* <button className={classes.button}><img className={classes.imgbtn} src={like} alt='' /></button> */}
                 <Likes postId={props.data.id}/>
                 <button className={classes.button} onClick={showModalHandler}><img className={classes.imgbtn} src={comment} alt=''/></button>
             </div>

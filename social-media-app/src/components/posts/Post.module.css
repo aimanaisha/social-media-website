@@ -20,14 +20,14 @@
     padding: 2.5rem 1.5rem;
     padding-bottom: 0px;
     border-radius: 15px;
-    background-color: #f7f7f8;
+    background-color: #e7edf0;
     text-align: center;
 }
 .head{
     margin: 0px;
     font-family: 'Mali', cursive;
     font-weight: 300;
-    color: rgb(85, 85, 85);
+    color: rgb(52, 49, 49);
     font-size: 1.4rem;
 }
 .input{

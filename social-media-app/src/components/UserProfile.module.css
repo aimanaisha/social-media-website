@@ -11,8 +11,8 @@
     border-radius: 22px;     
 }
 .dpbg{
-    width: 360px;
-    height: 360px;
+    width: fit-content;
+    padding: 2.4rem;
     border: solid rgb(72, 74, 74) 3px;
     border-radius: 22px;
     margin: auto;
