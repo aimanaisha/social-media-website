@@ -39,17 +39,23 @@
     margin-right: 20px;
 }
 .unameupdate{
-
-    height: 23px;
-    width: 23px;
+    height: 25px;
     display: block;
-    /* align-self: flex-end; */
     border-radius: 50%;
     border: solid black 2px;
     cursor: pointer;
     padding: 4px;
     margin-top: 20px;
     background-color: white;
+    transition: all .3s
+}
+.unameupdate:hover{
+    box-shadow: 0px 15px 25px -5px rgba(darken(rgb(0, 0, 0), 40%));
+    transform: scale(1.1);
+}
+.unameupdate:active{
+    box-shadow: 0px 4px 8px rgba(darken(rgb(0, 0, 0), 30%));
+    transform: scale(.98);
 }
 .bio{
     font-family: 'Mali', cursive;
@@ -92,14 +98,23 @@
     height: 50px;
 }
 .dpsettings{
-    height: 35px;
+    height: 25px;
     display: block;
     margin-left: 59%;
     border-radius: 50%;
     border: solid black 2px;
     cursor: pointer;
-    padding: 8px;
+    padding: 4px;
     background-color: white;
+    transition: all .3s
+}
+.dpsettings:hover{
+    box-shadow: 0px 15px 25px -5px rgba(darken(rgb(0, 0, 0), 40%));
+    transform: scale(1.1);
+}
+.dpsettings:active{
+    box-shadow: 0px 4px 8px rgba(darken(rgb(0, 0, 0), 30%));
+    transform: scale(.98);
 }
 
 .settings{
@@ -112,9 +127,20 @@
     margin-bottom: 2rem;
     cursor: pointer;
     background-color: white;
+    transition: all .3s
+
 }
 .biosettings{    
     height: 60px;
     width: 60px;
     border-radius: 50%;
 }
+.settings:hover{
+    box-shadow: 0px 15px 25px -5px rgba(darken(rgb(0, 0, 0), 40%));
+    transform: scale(1.05);
+}
+.settings:active{
+    box-shadow: 0px 4px 8px rgba(darken(rgb(0, 0, 0), 30%));
+    transform: scale(.98);
+}
+

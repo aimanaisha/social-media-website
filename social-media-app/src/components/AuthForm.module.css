@@ -7,13 +7,13 @@
     justify-content: space-between;   
     margin: auto;
     width: 1100px;
-    height: 60vh;
+    height: 58vh;
     background-color: #CDB4DB;    
     border: solid black 3px;
     text-align: left;
     font-size: small;
     font-family: 'Mali', cursive;
-    border-radius: 12px;
+    border-radius: 22px;
 }
 .leftbox{
     display: flex;
@@ -30,6 +30,9 @@
     padding-left: 3rem;
     justify-content: center;
     width: 40%;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+
 }
 
 .input{
@@ -43,6 +46,8 @@
     margin: 0.8rem auto;
     padding: 0.25rem;
     padding-left: 12px;
+  border-radius: 10px;
+
 }
 
 .loginbutton{
@@ -51,7 +56,7 @@
   color: black;
   background-color: #F8AD9D;
   border: 2px solid #050505;
-  /* border-radius: 5px; */
+  border-radius: 8px;
   width: 114px;
   height: 38px;
   margin-top: 8px;
@@ -84,6 +89,7 @@
     font-weight: 400;
     font-size: 1.3rem;
     margin-top: 0px;
+    
 }
 .image{
     margin: 0;
@@ -94,8 +100,8 @@
   color: black;
   background-color: #CDB4DB;
   border: 2px solid #050505;
-  /* border-radius: 5px; */
-  padding: 0.3rem 1.8rem;
+  border-radius: 8px;
+  padding: 0.6rem 1.8rem;
   width: 200px;
   font-size: large;
 }
@@ -110,6 +116,8 @@
     font-family: 'Mali', cursive;
     font-weight: bold;
     cursor: pointer;
+    border-radius: 10px;
+
 }
 .google{
     height: 30px;

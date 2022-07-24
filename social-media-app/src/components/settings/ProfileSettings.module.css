@@ -42,6 +42,15 @@
     font-family: Mali, cursive;
     font-size: 1.1rem;
     width: fit-content;
+    transition: all .3s
+}
+.discardbtn:hover{
+    box-shadow: 0px 15px 25px -5px rgba(darken(dodgerblue, 40%));
+    transform: scale(1.03);
+}
+.discardbtn:active{
+    box-shadow: 0px 4px 8px rgba(darken(dodgerblue, 30%));
+    transform: scale(.98);
 }
 .updatebtn{
     background-color: #CDB4DB;
@@ -53,6 +62,15 @@
     font-family: Mali, cursive;
     font-size: 1.1rem;
     width: fit-content;
+    transition: all .3s
+}
+.updatebtn:hover{
+    box-shadow: 0px 15px 25px -5px rgba(darken(dodgerblue, 40%));
+    transform: scale(1.03);
+}
+.updatebtn:active{
+    box-shadow: 0px 4px 8px rgba(darken(dodgerblue, 30%));
+    transform: scale(.98);
 }
 .btnbox{
     margin: 1rem 1rem;
@@ -80,4 +98,13 @@
     padding: 10px;
     margin: 2rem;
     background-color: white;
+    transition: all .3s
+}
+.biosettings:hover{
+    box-shadow: 0px 15px 25px -5px rgba(darken(dodgerblue, 40%));
+    transform: scale(1.03);
+}
+.biosettings:active{
+    box-shadow: 0px 4px 8px rgba(darken(dodgerblue, 30%));
+    transform: scale(.98);
 }
