@@ -3,14 +3,7 @@ import { useState } from "react";
 import Modal from "../../Layout/Modal";
 import classes from "./DpSettings.module.css";
 import ImageUploader from "react-images-upload";
-import {
-  updateDoc,
-  collection,
-  getDocs,
-  query,
-  where,
-  doc,
-} from "firebase/firestore";
+import { updateDoc, collection, getDocs, query, where, doc } from "firebase/firestore";
 import { db } from "../../store/firebase";
 
 const DpSettings = (props) => {
@@ -56,6 +49,17 @@ const DpSettings = (props) => {
     const data = await getDocs(q);
     data.docs.map(async (post) => {
       await updateDoc(doc(db, "file_posts", post.id), {
+        user_dp: currentUser.photoURL,
+      });
+    });
+
+    const query = query(
+      collection(db, "notifications"),
+      where("done_by_id", "==", currentUser.uid)
+    );
+    const notifications = await getDocs(q);
+    notifications.docs.map(async (post) => {
+      await updateDoc(doc(db, "notifications", post.id), {
         user_dp: currentUser.photoURL,
       });
     });

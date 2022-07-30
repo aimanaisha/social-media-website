@@ -1,6 +1,5 @@
 import { useState } from "react";
 import classes from "./UserFeed.module.css";
-import like from "../../assets/like1.png";
 import comment from "../../assets/comment1.png";
 import defaultDp from "../../assets/defaultDp.png";
 import Comments from "./Comments";
@@ -20,7 +19,7 @@ const DisplayPost = (props) => {
 
   return (
     <div className={classes.post} key={props.data.id}>
-      {showModal && <Comments onHideBox={hideModalHandler} postId={data.id} />}
+      {showModal && <Comments onHideBox={hideModalHandler} postId={data.id} postUser={props.data.uid} postUserDp={props.data.user_dp} postedImg={props.data.file_url}/>}
       <div className={classes.user}>
         <img
           className={classes.dp}
@@ -33,7 +32,7 @@ const DisplayPost = (props) => {
       <img className={classes.postedimg} src={props.data.file_url} alt="" />
       <div className={classes.bottom}>
         <div className={classes.like_comment}>
-          <Likes postId={props.data.id} />
+          <Likes postId={props.data.id} postUser={props.data.uid} postUserDp={props.data.user_dp} postedImg={props.data.file_url}/>
           <button className={classes.button} onClick={showModalHandler}>
             <img className={classes.imgbtn} src={comment} alt="" />
           </button>

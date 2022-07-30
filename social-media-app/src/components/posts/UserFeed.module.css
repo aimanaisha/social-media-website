@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 14rem;
+    /* margin-left: 14rem; */
 }
 .userfeed{
     display: flex;
@@ -15,7 +15,7 @@
 }
 .post{
     background-color: #e7edf0;
-    width: 500px;
+    width: 450px;
     padding: 1.4rem;
     margin-bottom: 3rem;
     border-radius: 15px;
@@ -40,8 +40,8 @@
     flex-direction: row;
 }
 .dp{
-    height: 35px;
-    width: 35px;
+    height: 30px;
+    width: 30px;
     border-radius: 6px;
     border: solid #aa84c7 2px;
     margin-left: 8px;
@@ -51,8 +51,8 @@
     /* font-family: 'Mali', cursive; */
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 22px;
-    font-size: large;
-    margin-left: 1.5rem;
+    font-size: 1rem;
+    margin-left: 1rem;
     color: #51555C;
     letter-spacing: 0.1rem;
 }
@@ -68,8 +68,8 @@
     text-align: justify;
 }
 .postedimg{
-    height: 560px;
-    width: 500px;
+    height: 540px;
+    width: 440px;
     border: solid rgb(67, 67, 67) 2px;
     border-radius: 10px;
 }

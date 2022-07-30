@@ -4,7 +4,7 @@ import styles from "./Profile.module.css";
 import { useEffect, useState } from "react";
 import classes from "../components/posts/UserFeed.module.css";
 import { db } from "../store/firebase";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
 import DisplayPost from "../components/posts/DisplayPost";
 import { getAuth } from "firebase/auth";
 import loader from "../assets/loader.svg";
@@ -39,7 +39,7 @@ const Profile = () => {
       </div>
 
       <div className={classes.userfeed}>
-        <p>{loading && <img src={loader} />}</p>
+        <p>{loading && <img src={loader} alt=""/>}</p>
         {userData.map((data) => {
           return <DisplayPost data={data} key={data.id} />;
         })}

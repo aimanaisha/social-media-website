@@ -8,7 +8,7 @@ import classes from "./Post.module.css";
 
 const Post = () => {
   const currentUser = useAuth();
-  var current = new Date();
+  var current = new Date()
   const btnstyles = {
     backgroundColor: "#CDB4DB",
     borderRadius: "12px",
@@ -51,7 +51,6 @@ const Post = () => {
   const uploadFileHandler = async () => {
     if (file) {
       setPreview(false);
-      alert("Your Picture Will be Posted");
       const fileRef = ref(storage, `posts/${currentUser.uid}/${file.name}.png`);
       await uploadBytes(fileRef, file);
       const photoURL = await getDownloadURL(fileRef);
@@ -61,7 +60,7 @@ const Post = () => {
         file_url: photoURL,
         posted_by: currentUser.displayName,
         user_dp: currentUser.photoURL,
-        posted_on: current.toLocaleDateString(),
+        posted_on: current.toDateString(),
         posted_at: current.toLocaleTimeString(),
         caption: text,
         uid: currentUser.uid,

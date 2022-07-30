@@ -27,6 +27,7 @@ const Comments = (props) => {
       };
       setComment("");
       await addDoc(collectionRef, payload);
+      await addDoc(collection(db, "notifications"), { type: 'commented on', done_by_id: currentUser.uid, done_by: currentUser.displayName, post_user: props.postUser, user_dp: props.postUserDp, posted_img: props.postedImg })
     } else {
       alert("empty field");
     }

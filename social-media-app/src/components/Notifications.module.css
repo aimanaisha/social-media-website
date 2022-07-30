@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+.dp{
+    height:50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid #aa84c7;
+}
+.post{
+    height:80px;
+    width: 60px;
+    border: 2px solid rgb(79, 79, 79);
+    border-radius: 8px;
+}
+.notific{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    /* width: 100%; */
+    /* padding-bottom: 1rem; */
+    /* border-bottom: 1px solid black; */
+}
+.border{
+    height: 1px;
+    background: rgb(66, 66, 66);
+    width: 22rem;
+    margin-top: 2rem;
+}
+.middle{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+.info{
+    margin: 0;
+    margin-bottom: 0.5rem;
+    font-family: 'Mali', cursive;
+    font-size: large;
+}
+.date{
+    margin: 0;
+    font-size: small;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(73, 73, 73);
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 34rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    align-items: center;
+    background: #d6ffc3;
+    border: solid black 2px;
+    border-radius: 12px;
+}
+.head{
+    font-family: 'Mali', cursive;
+    color: rgb(51, 51, 54);
+}

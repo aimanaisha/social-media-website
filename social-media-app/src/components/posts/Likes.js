@@ -24,7 +24,7 @@ const Likes = (props) => {
   useEffect(() => {
     const getLikes = async () => {
       const q = query(collectionRef, where("postId", "==", props.postId));
-      const data = await getDocs(q);
+      const data = await getDocs(q); 
       setUserLike(
         data.docs
           .map((doc) => ({ ...doc.data(), id: doc.id }))
@@ -56,18 +56,18 @@ const Likes = (props) => {
     if (userLike.length !== 0) {
       setLikeState(false);
       await deleteDoc(doc(db, "Likes", userLike[0].id));
-      console.log("already liked, unlike", userLike);
     } else {
       setLikeState(true);
       const payload = { uid: auth.currentUser.uid, postId: props.postId };
       await addDoc(collectionRef, payload);
-      console.log("not liked, like", userLike);
+      await addDoc(collection(db, "notifications"), { type: 'liked',done_by_id: auth.currentUser.uid, done_by: auth.currentUser.displayName, post_user: props.postUser, user_dp: props.postUserDp, posted_img: props.postedImg })
     }
   };
   return (
     <>
       <button className={classes.button} onClick={test}>
         <img
+          alt=''
           className={classes.imgbtn}
           src={likeState === true ? like : unlike1}
         />

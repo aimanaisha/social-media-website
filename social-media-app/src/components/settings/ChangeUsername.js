@@ -40,7 +40,16 @@ const ChangeUsername = (props) => {
           posted_by: currentUser.displayName,
         });
       });
-
+      const query = query(
+        collection(db, "notifications"),
+        where("done_by_id", "==", currentUser.uid)
+      );
+      const notifications = await getDocs(q);
+      notifications.docs.map(async (post) => {
+        await updateDoc(doc(db, "notifications", post.id), {
+          done_by: currentUser.displayName,
+        });
+      });
       const qry = query(
         collection(db, "comments"),
         where("uid", "==", currentUser.uid)

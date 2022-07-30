@@ -6,6 +6,7 @@ import { useAuth } from "./store/AuthContext";
 import ProfileSettings from "./components/settings/ProfileSettings";
 import AccInfo from "./components/AccInfo";
 
+
 const App = () => {
   const currentUser = useAuth();
 
@@ -15,7 +16,11 @@ const App = () => {
         <Redirect to="/login" />
       </Route>
 
-      {!currentUser && <Login />}
+      {/* <Route path="/login">
+        <Login />
+      </Route> */}
+      {!currentUser && <Login/>}
+
       {currentUser && (
         <Route path="/profile">
           <Profile />
