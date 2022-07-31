@@ -32,7 +32,7 @@ const Notifications = () => {
         <h2 className={classes.head}>Notifications</h2>
       {notifications.map((data) => {
         return (
-          <div className={classes.notific}>
+          <div className={classes.notific} key={data.done_by_id}>
             <img className={classes.dp} src={data.user_dp} alt="" />
             <div className={classes.middle}>
               <p className={classes.info}>

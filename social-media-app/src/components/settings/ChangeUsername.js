@@ -2,14 +2,7 @@ import Modal from "../../Layout/Modal";
 import classes from "./ChangePasswd.module.css";
 import { username, useAuth } from "../../store/AuthContext";
 import { useState } from "react";
-import {
-  updateDoc,
-  collection,
-  getDocs,
-  query,
-  where,
-  doc,
-} from "firebase/firestore";
+import { updateDoc, collection, getDocs, query, where, doc } from "firebase/firestore";
 import { db } from "../../store/firebase";
 
 const ChangeUsername = (props) => {
@@ -40,11 +33,11 @@ const ChangeUsername = (props) => {
           posted_by: currentUser.displayName,
         });
       });
-      const query = query(
+      const querY = query(
         collection(db, "notifications"),
         where("done_by_id", "==", currentUser.uid)
       );
-      const notifications = await getDocs(q);
+      const notifications = await getDocs(querY);
       notifications.docs.map(async (post) => {
         await updateDoc(doc(db, "notifications", post.id), {
           done_by: currentUser.displayName,

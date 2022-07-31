@@ -33,11 +33,11 @@ const Comments = (props) => {
     }
   };
 
-  const loadCommentsHandler = async () => {
-    const q = query(collectionRef, where("post_id", "==", props.postId));
-    const data = await getDocs(q);
-    setAllComments(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  };
+  // const loadCommentsHandler = async () => {
+  //   const q = query(collectionRef, where("post_id", "==", props.postId));
+  //   const data = await getDocs(q);
+  //   setAllComments(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  // };
 
   return (
     <Modal onClose={props.onHideBox}>
@@ -55,9 +55,9 @@ const Comments = (props) => {
           Post
         </button>
       </div>
-      <button className={classes.loadbtn} onClick={loadCommentsHandler}>
+      {/* <button className={classes.loadbtn} onClick={loadCommentsHandler}>
         Load Comments
-      </button>
+      </button> */}
       <div className={classes.container}>
         {allComments.map((data) => {
           return (

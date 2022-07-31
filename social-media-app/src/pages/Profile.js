@@ -4,7 +4,7 @@ import styles from "./Profile.module.css";
 import { useEffect, useState } from "react";
 import classes from "../components/posts/UserFeed.module.css";
 import { db } from "../store/firebase";
-import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
 import DisplayPost from "../components/posts/DisplayPost";
 import { getAuth } from "firebase/auth";
 import loader from "../assets/loader.svg";
@@ -15,21 +15,37 @@ const Profile = () => {
   const [userData, setUserData] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // useEffect(() => {
+  //   setLoading(true);
+  //   const getData = async () => {
+  //     if (auth.currentUser) {
+  //       let uid = auth.currentUser.uid;
+  //       const q = query(collection(db, "file_posts"), where("uid", "==", uid));
+  //       const data = await getDocs(q);
+  //       setUserData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  //       setLoading(false);
+  //     } else {
+  //       alert("error");
+  //     }
+  //   };
+  //   getData();
+  // }, [auth]);
   useEffect(() => {
-    setLoading(true);
-    const getData = async () => {
-      if (auth.currentUser) {
-        let uid = auth.currentUser.uid;
-        const q = query(collection(db, "file_posts"), where("uid", "==", uid));
-        const data = await getDocs(q);
-        setUserData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-        setLoading(false);
-      } else {
-        alert("error");
-      }
+    setLoading(true)
+    const q = query(
+      collection(db, "file_posts"),
+      where("uid", "==", auth.currentUser.uid)
+    );
+    const snap = () => {
+      onSnapshot(q, (snapshot) => {
+        setUserData(
+          snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+        );
+        setLoading(false)
+      });
     };
-    getData();
-  }, [auth]);
+    snap();
+  }, []);
 
   return (
     <>

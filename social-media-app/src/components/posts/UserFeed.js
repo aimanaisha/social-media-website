@@ -3,7 +3,7 @@ import classes from "./UserFeed.module.css";
 import { db } from "../../store/firebase";
 import { collection, onSnapshot } from "firebase/firestore";
 import DisplayPost from "./DisplayPost";
-// import { getAuth } from "firebase/auth";
+
 import loader from "../../assets/loader.svg";
 
 
@@ -21,22 +21,8 @@ const UserFeed = () => {
     setLoading(false)
     })}
     snap();
-}
+} 
 , [])
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   const getData = async () => {
-  //     if (auth.currentUser) {
-  //       const data = await getDocs(collectionRef);
-  //       setUserData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  //       setLoading(false);
-  //     } else {
-  //       alert("error");
-  //     }
-  //   };
-  //   getData();
-  // }, [auth]);
 
   return (
     <div className={classes.feed}>

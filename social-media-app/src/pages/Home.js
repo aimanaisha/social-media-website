@@ -5,14 +5,13 @@ import Post from "../components/posts/Post";
 import Notifications from "../components/Notifications";
 
 const Home = () => {
-
   return (
     <div className="bg">
       <Navbar />
       <div className={classes.home}>
         <Post />
-       <UserFeed />
-       <Notifications/>
+        <UserFeed />
+        <Notifications />
       </div>
     </div>
   );

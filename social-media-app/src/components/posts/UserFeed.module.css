@@ -35,9 +35,13 @@
     background-position: 0 0, 0 0, 100% 0, 0 100%;
     background-repeat: no-repeat;
 }
+.top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .user{
     display: flex;
-    flex-direction: row;
 }
 .dp{
     height: 30px;
@@ -95,9 +99,25 @@
     border: none;
     background-color: #e7edf0;
 }
+.btn{
+    border: none;
+    margin-bottom: 12px;
+    background-color: #e7edf0;
+}
+.hidebtn{
+    border: none;
+    margin-bottom: 12px;
+    background-color: #e7edf0;
+    visibility: hidden;
+}
 .like_comment{
     display: flex;
     align-items: flex-start;
+}
+.deletebtn{
+    height: 35px;
+    cursor: pointer;
+    transition: all .3s
 }
 .imgbtn{
     height: 40px;

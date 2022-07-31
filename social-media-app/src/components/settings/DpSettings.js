@@ -53,11 +53,11 @@ const DpSettings = (props) => {
       });
     });
 
-    const query = query(
+    const querY = query(
       collection(db, "notifications"),
       where("done_by_id", "==", currentUser.uid)
     );
-    const notifications = await getDocs(q);
+    const notifications = await getDocs(querY);
     notifications.docs.map(async (post) => {
       await updateDoc(doc(db, "notifications", post.id), {
         user_dp: currentUser.photoURL,

@@ -12,7 +12,7 @@ import DpSettings from "./settings/DpSettings";
 import { Link } from "react-router-dom";
 import defaultDp from "../assets/defaultDp.png";
 import { db } from "../store/firebase";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
 import ChangeUsername from "./settings/ChangeUsername";
 
 const UserProfile = () => {
@@ -47,16 +47,31 @@ const UserProfile = () => {
     }
   }, [auth, showModal]);
 
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const q = query(
+  //       collection(db, "user_info"),
+  //       where("uid", "==", auth.currentUser.uid)
+  //     );
+  //     const data = await getDocs(q);
+  //     setUserinfo(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  //   };
+  //   getData();
+  // }, []);
+
   useEffect(() => {
-    const getData = async () => {
-      const q = query(
-        collection(db, "user_info"),
-        where("uid", "==", auth.currentUser.uid)
-      );
-      const data = await getDocs(q);
-      setUserinfo(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    const q = query(
+      collection(db, "user_info"),
+      where("uid", "==", auth.currentUser.uid)
+    );
+    const snap = () => {
+      onSnapshot(q, (snapshot) => {
+        setUserinfo(
+          snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+        );
+      });
     };
-    getData();
+    snap();
   }, []);
 
   return (
