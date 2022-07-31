@@ -1,9 +1,19 @@
 import Modal from "../../Layout/Modal";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import classes from "../settings/ChangePasswd.module.css";
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  onSnapshot,
+  query,
+  where,
+  getDocs,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
 import { useAuth } from "../../store/AuthContext";
 import { db } from "../../store/firebase";
+import cross from "../../assets/cross.png";
 
 const Comments = (props) => {
   const currentUser = useAuth();
@@ -15,11 +25,14 @@ const Comments = (props) => {
   const commentHandler = (e) => {
     setComment(e.target.value);
   };
+
+  //  POST COMMENT
   const submitHandler = async () => {
     if (comment.trim() !== "") {
       const payload = {
         post_id: props.postId,
         posted_by: currentUser.displayName,
+        posted_by_id: currentUser.uid,
         user_dp: currentUser.photoURL,
         posted_on: current.toLocaleDateString(),
         posted_at: current.toLocaleTimeString(),
@@ -27,17 +40,39 @@ const Comments = (props) => {
       };
       setComment("");
       await addDoc(collectionRef, payload);
-      await addDoc(collection(db, "notifications"), { type: 'commented on', done_by_id: currentUser.uid, done_by: currentUser.displayName, post_user: props.postUser, user_dp: props.postUserDp, posted_img: props.postedImg })
+      await addDoc(collection(db, "notifications"), {
+        type: "commented on",
+        done_by_id: currentUser.uid,
+        done_by: currentUser.displayName,
+        post_user: props.postUser,
+        user_dp: props.postUserDp,
+        posted_img: props.postedImg,
+      });
     } else {
       alert("empty field");
     }
   };
 
-  // const loadCommentsHandler = async () => {
-  //   const q = query(collectionRef, where("post_id", "==", props.postId));
-  //   const data = await getDocs(q);
-  //   setAllComments(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  // };
+  //  LOAD COMMENTS
+  useEffect(() => {
+    const q = query(collectionRef, where("post_id", "==", props.postId));
+    const snap = () => {
+      onSnapshot(q, (snapshot) => {
+        setAllComments(
+          snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+        );
+      });
+    };
+    snap();
+  }, []);
+
+  //   DELETE COMMENTS
+  const deleteCommentHandler = useCallback(
+    (id) => async () => {
+      await deleteDoc(doc(db, "comments", id));
+    },
+    []
+  );
 
   return (
     <Modal onClose={props.onHideBox}>
@@ -55,18 +90,23 @@ const Comments = (props) => {
           Post
         </button>
       </div>
-      {/* <button className={classes.loadbtn} onClick={loadCommentsHandler}>
-        Load Comments
-      </button> */}
       <div className={classes.container}>
         {allComments.map((data) => {
           return (
             <div key={data.id} className={classes.commentbox}>
-              <img className={classes.dp} src={data.user_dp} alt="" />
-              <h3 className={classes.user}>{data.posted_by}</h3>
-              <div className={classes.commentdiv}>
-                <p className={classes.comment}>{data.comment}</p>
+              <div className={classes.align}>
+                <img className={classes.dp} src={data.user_dp} alt="" />
+                <h3 className={classes.user}>{data.posted_by}</h3>
+                <div className={classes.commentdiv}>
+                  <p className={classes.comment}>{data.comment}</p>
+                </div>
               </div>
+              <img
+                className={data.posted_by_id === currentUser.uid ? classes.delete : classes.hide_delete}
+                src={cross}
+                alt=""
+                onClick={deleteCommentHandler(data.id)}
+              />
             </div>
           );
         })}
