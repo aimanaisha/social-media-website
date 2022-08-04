@@ -60,7 +60,7 @@ const Likes = (props) => {
       setLikeState(true);
       const payload = { uid: auth.currentUser.uid, postId: props.postId };
       await addDoc(collectionRef, payload);
-      await addDoc(collection(db, "notifications"), { type: 'liked',done_by_id: auth.currentUser.uid, done_by: auth.currentUser.displayName, post_user: props.postUser, user_dp: props.postUserDp, posted_img: props.postedImg })
+      await addDoc(collection(db, "notifications"), { type: 'liked',done_by_id: auth.currentUser.uid, done_by: auth.currentUser.displayName, post_user: props.postUser, user_dp: auth.currentUser.photoURL, posted_img: props.postedImg })
     }
   };
   return (

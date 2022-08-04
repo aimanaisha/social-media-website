@@ -109,6 +109,7 @@ const UserProfile = () => {
               </p>
               <div className={classes.aboutborder}>
                 <div className={classes.about}>
+
                   <div className={classes.infodiv}>
                     <img
                       className={classes.infoimg}
@@ -117,12 +118,14 @@ const UserProfile = () => {
                     />
                     <h2 className={classes.info}>Lives in {data.location}</h2>
                   </div>
+
                   <div className={classes.infodiv}>
                     <img className={classes.infoimg} alt="error" src={call} />
                     <h2 className={classes.info}>
                       Give a call at {data.phone}
                     </h2>
                   </div>
+
                   <div className={classes.infodiv}>
                     <img
                       className={classes.infoimg}
@@ -131,12 +134,14 @@ const UserProfile = () => {
                     />
                     <h2 className={classes.info}>Born on {data.dob}</h2>
                   </div>
+
                   <div className={classes.infodiv}>
                     <img className={classes.infoimg} alt="error" src={mail} />
                     <h2 className={classes.info}>
-                      Drop a mail at {auth.currentUser?.email}
+                      Mail at {auth.currentUser?.email}
                     </h2>
                   </div>
+
                 </div>
               </div>
             </div>

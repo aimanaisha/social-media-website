@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* margin-left: 14rem; */
+    margin-left: 30rem;
 }
 .userfeed{
     display: flex;
@@ -15,8 +15,8 @@
 }
 .post{
     background-color: #e7edf0;
-    width: 450px;
-    padding: 1.4rem;
+    width: 500px;
+    padding: 1.8rem;
     margin-bottom: 3rem;
     border-radius: 15px;
     background-image: repeating-linear-gradient(0deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(90deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(180deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(270deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px);
@@ -72,8 +72,8 @@
     text-align: justify;
 }
 .postedimg{
-    height: 540px;
-    width: 440px;
+    height: 670px;
+    width: 500px;
     border: solid rgb(67, 67, 67) 2px;
     border-radius: 10px;
 }
@@ -115,7 +115,7 @@
     align-items: flex-start;
 }
 .deletebtn{
-    height: 35px;
+    height: 20px;
     cursor: pointer;
     transition: all .3s
 }
@@ -137,4 +137,87 @@
     font-family: 'Mali', cursive;
     cursor: pointer;
     color: #383b40;
+}
+@media screen and (max-width: 550px){
+    .feed{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0rem;
+        /* background-color: #292a2c; */
+        width: 100%;
+    }
+    .userfeed{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .post{
+        width: 85%;
+        padding: 0.8rem;
+        margin-bottom: 3rem;
+        border-radius: 15px;
+        text-align: center;
+    }
+    .Userpost{
+        width: 250px;
+        padding: 0rem;
+        margin-bottom: 3rem;    
+        border-radius: 15px;
+    }
+    .dp{
+        height: 25px;
+        width: 25px;
+        border-radius: 6px;
+        margin-left: 8px;    
+    }
+    .username{
+        margin-bottom: 22px;
+        font-size: 0.7rem;
+        margin-left: 1rem;
+    }
+    .text{
+        font-size: 0.9rem;
+        width: 95%;
+        margin: auto;
+        margin-bottom: 20px;
+        letter-spacing: 0.5px;
+    }
+    .postedimg{
+        height: 440px;
+        width: 99%;
+    }
+    .date{
+        font-size: x-small;
+    }
+    .timestamp{
+        margin-right: 20px;
+        margin-top: 8px;
+    }
+    .btn{
+        margin-bottom: 12px;
+    }
+    .hidebtn{
+        margin-bottom: 12px;
+        visibility: hidden;
+    }
+    .deletebtn{
+        height: 10px;
+    }
+    .user{
+        margin-top: 5px;
+
+    }
+    .imgbtn{
+        height: 30px;
+    }
+    .likes{
+        margin: 0px;
+        font-size: x-small;
+    }
+    .like_comment{
+        margin-left: 12px;
+        margin-top: 2px;
+
+    }
 }

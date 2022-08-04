@@ -2,42 +2,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 .dp{
-    height:50px;
-    width: 50px;
+    height:40px;
+    width: 40px;
     border-radius: 50%;
     border: 2px solid #aa84c7;
 }
 .post{
-    height:80px;
-    width: 60px;
+    height:70px;
+    width: 50px;
     border: 2px solid rgb(79, 79, 79);
     border-radius: 8px;
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+
 }
 .notific{
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
     justify-content: center;
-    /* width: 100%; */
-    /* padding-bottom: 1rem; */
-    /* border-bottom: 1px solid black; */
+    /* background-color: aqua; */
 }
 .border{
     height: 1px;
-    background: rgb(66, 66, 66);
-    width: 22rem;
-    margin-top: 2rem;
+    background: rgb(110, 108, 108);
+    width: 18rem;
+    margin-top: 1rem;
 }
 .middle{
     display: flex;
     flex-direction: column;
-    margin: 1rem;
+    margin-left: 1rem;
 }
 .info{
     margin: 0;
     margin-bottom: 0.5rem;
     font-family: 'Mali', cursive;
-    font-size: large;
+    font-size: medium;
+    color: rgb(23, 18, 81);
 }
 .date{
     margin: 0;
@@ -48,13 +50,17 @@
 .container{
     display: flex;
     flex-direction: column;
-    width: 34rem;
-    padding-top: 2rem;
-    padding-bottom: 1rem;
+    position: fixed;
+    left: 82rem;
+    width: 28rem;
+    margin-top: 2rem;
     align-items: center;
-    background: #d6ffc3;
+    background: #ffe5d9;
     border: solid black 2px;
     border-radius: 12px;
+    height: 45rem;
+    overflow-y: scroll;
+    padding: 2rem 0.5rem 1rem 0.5rem;
 }
 .head{
     font-family: 'Mali', cursive;

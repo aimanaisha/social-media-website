@@ -1,5 +1,7 @@
 import classes from "./Modal.module.css";
+import { Scrollbars } from 'react-custom-scrollbars';
 import ReactDOM from "react-dom";
+
 
 const Backdrop = (props) => {
   return <div className={classes.backdrop} onClick={props.onClick} />;
@@ -7,9 +9,12 @@ const Backdrop = (props) => {
 
 const ModalOverlay = (props) => {
   return (
-    <div className={classes.modal}>
-      <div className={classes.content}>{props.children}</div>
-    </div>
+    <Scrollbars style={{ width: 800, height: 300 }}>
+      <div className={classes.modal}>
+        <div className={classes.content}>{props.children}</div>
+      </div>
+    </Scrollbars>
+    
   );
 };
 

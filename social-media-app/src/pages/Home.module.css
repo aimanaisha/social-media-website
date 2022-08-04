@@ -1,6 +1,12 @@
 .home{
-    padding-top: 15rem;
-    /* padding-left: 4rem; */
+    padding-top: 6rem;
     display: flex;
-    justify-content: space-around;
+}
+.notif{
+    visibility: visible;
+}
+@media screen and (max-width: 550px){
+    .notif{
+        display: none;
+    }
 }

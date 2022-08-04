@@ -7,7 +7,6 @@ import {
   onSnapshot,
   query,
   where,
-  getDocs,
   deleteDoc,
   doc,
 } from "firebase/firestore";
@@ -45,7 +44,7 @@ const Comments = (props) => {
         done_by_id: currentUser.uid,
         done_by: currentUser.displayName,
         post_user: props.postUser,
-        user_dp: props.postUserDp,
+        user_dp: currentUser.photoURL,
         posted_img: props.postedImg,
       });
     } else {

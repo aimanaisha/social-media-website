@@ -17,6 +17,13 @@ export const logout = () => {
   return signOut(auth);
 };
 
+// export function useAuth() {
+//   const [currentUser, setCurrentUser] = useState();
+//   useEffect(() => {
+//     onAuthStateChanged(auth, (user) => {setCurrentUser(user); console.log(user)});
+//   }, [setCurrentUser]);
+//   return currentUser;
+// }
 export function useAuth() {
   const [currentUser, setCurrentUser] = useState();
   useEffect(() => {
@@ -25,6 +32,7 @@ export function useAuth() {
   }, []);
   return currentUser;
 }
+
 
 export async function upload(file, currentUser) {
   const fileRef = ref(storage, `profile-pictures/${currentUser.uid}.png`);

@@ -18,8 +18,8 @@
     left: 5%;
     width: 90%;
     max-height: 55%;
-    overflow: scroll;
-    background-color: rgb(254, 254, 255);
+    overflow-y: scroll;
+    background-color: #fefeff;
     padding: 1rem;
     text-align: center;
     font-family: 'Mali', cursive;

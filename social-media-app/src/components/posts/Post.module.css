@@ -2,34 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 
-.border{
-    /* margin: 2rem; */
-    padding: 2rem;
-    border-radius: 15px;
-    /* display: inline-block; */
-    /* position: fixed; */
-    height: fit-content;
-    /* left: 100px; */
-    background-image: repeating-linear-gradient(0deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(90deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(180deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(270deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px);
-    background-size: 3px 100%, 100% 3px, 3px 100% , 100% 3px;
-    background-position: 0 0, 0 0, 100% 0, 0 100%;
-    background-repeat: no-repeat;
-}
-.container{
-    border: solid rgb(71, 73, 77) 2px;
-    display: inline-block;
-    padding: 2.5rem 1.5rem;
-    padding-bottom: 0px;
-    border-radius: 15px;
-    background-color: #e7edf0;
-    text-align: center;
-}
+
+
 .head{
-    margin: 0px;
     font-family: 'Mali', cursive;
-    font-weight: 300;
+    font-weight: 600;
     color: rgb(52, 49, 49);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
 }
 .input{
     display: none;
@@ -37,20 +16,7 @@
 .upload{
     height: 30px;
 }
-/* .choosebtn{
-    border: solid black 2px;
-    display:flex;
-    justify-content: center;
-    width: 200px;
-    align-items: center;
-    margin: 2rem;
-    padding: 0.5rem 1rem;
-    background-color: #CDB4DB;
-    border-radius: 20px;
-}  */
-.testing{
-    background-color: aqua;
-}
+
 .caption{
     font-family: 'Mali', cursive;
     font-size: 1.5rem;

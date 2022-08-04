@@ -4,7 +4,7 @@
 .test{
     position: fixed;
     right: 0.5px;
-    
+    bottom: 35.3rem;
 }
 .ul{
     position: relative;
@@ -20,8 +20,8 @@
     background: none;
     cursor: pointer;
 }
-.image{
-    height: 70px;
+.image{ 
+    height: 50px;
     margin: 1rem;
     transition: all .3s
 
@@ -33,4 +33,14 @@
 .image:active{
     box-shadow: 0px 4px 8px rgba(darken(rgb(0, 0, 0), 30%));
     transform: scale(.92);
+}
+@media screen and (max-width: 550px){
+    .image{ 
+        height: 30px;    
+    }
+    .test{
+        position: fixed;
+        right: 30px;
+        bottom: 830px;
+    }
 }

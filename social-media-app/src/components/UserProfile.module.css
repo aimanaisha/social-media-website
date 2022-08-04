@@ -61,6 +61,7 @@
     font-family: 'Mali', cursive;
     font-size: 1.7rem;
     font-style: italic;
+    margin-top: 4rem;
     margin-bottom: 4.5rem;
 }
 .quote{
@@ -76,7 +77,7 @@
 }
 .aboutborder{
     padding: 0.6rem;
-    margin-bottom: 3rem;
+    margin: 7rem;
     border: solid rgb(72, 74, 74) 3px;
     border-radius: 16px;
     display: inline-block;
@@ -144,3 +145,78 @@
     transform: scale(.98);
 }
 
+@media screen and (max-width: 550px){
+    .dp{
+        width: 120px;
+        height: 120px;
+        border-radius: 18px;     
+    }
+    .dpbg{
+        padding: 1.4rem;
+        border-radius: 18px;    
+    }
+    .namediv{
+        margin: 3rem auto;
+    }
+    .username{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 200;
+        margin: 0px;
+        font-size: 1.5rem;
+    }
+    .bio{
+        font-size: 1rem;
+        margin: 1rem 0.5rem;
+    }
+    .quote{
+        height: 35px;
+    }
+    .aboutborder{
+        padding: 0.6rem;
+        margin: 4rem 0.3rem;
+        border: solid rgb(72, 74, 74) 3px;
+        border-radius: 16px;
+        display: inline-block;
+        background-image: url("data:image/svg+xml,%3Csvg width='70' height='70' viewBox='0 0 70 70' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2393caf9' fill-opacity='0.59' fill-rule='evenodd'%3E%3Cpath d='M0 0h35v35H0V0zm5 5h25v25H5V5zm5 5h15v15H10V10zm5 5h5v5h-5v-5zM40 5h25v25H40V5zm5 5h15v15H45V10zm5 5h5v5h-5v-5zM70 35H35v35h35V35zm-5 5H40v25h25V40zm-5 5H45v15h15V45zm-5 5h-5v5h5v-5zM30 40H5v25h25V40zm-5 5H10v15h15V45zm-5 5h-5v5h5v-5z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .about{
+        border: solid rgb(72, 74, 74) 3px;
+        padding: 5px;
+        margin: 1rem;
+        border-radius: 16px;
+
+
+    }
+    .aboutborder{
+        padding: 0.6rem;
+        display: inline-block;
+        background-image: url("data:image/svg+xml,%3Csvg width='70' height='70' viewBox='0 0 70 70' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2393caf9' fill-opacity='0.59' fill-rule='evenodd'%3E%3Cpath d='M0 0h35v35H0V0zm5 5h25v25H5V5zm5 5h15v15H10V10zm5 5h5v5h-5v-5zM40 5h25v25H40V5zm5 5h15v15H45V10zm5 5h5v5h-5v-5zM70 35H35v35h35V35zm-5 5H40v25h25V40zm-5 5H45v15h15V45zm-5 5h-5v5h5v-5zM30 40H5v25h25V40zm-5 5H10v15h15V45zm-5 5h-5v5h5v-5z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .infodiv{
+        display: flex;
+        margin: 1.5rem 6px;
+    }
+    .info{
+        font-size: 1rem;
+        margin: 0px;
+        margin-left: 10px;
+        /* margin-top: 12px; */
+    }
+    .infoimg{
+        height: 25px;
+    }
+    .settings{
+        border-radius: 50%;
+        padding: 0.3rem;
+        position: fixed;
+        top: 93%;
+        left: 0%;
+        margin-bottom: 2rem;
+    
+    }
+    .biosettings{    
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+    }
+}

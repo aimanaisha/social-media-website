@@ -5,10 +5,12 @@ import { storage, db } from "../../store/firebase";
 import { addDoc, collection } from "firebase/firestore";
 import { useAuth } from "../../store/AuthContext";
 import classes from "./Post.module.css";
+import Modal from '../../Layout/Modal'
 
-const Post = () => {
+const Post = (props) => {
   const currentUser = useAuth();
   var current = new Date()
+
   const btnstyles = {
     backgroundColor: "#CDB4DB",
     borderRadius: "12px",
@@ -19,17 +21,9 @@ const Post = () => {
     fontSize: "1.1rem",
     marginTop: "20px",
   };
-  const stylesA = {
-    backgroundColor: "#e7edf0",
-    padding: "1.5rem 1.9rem",
+  const styles = {
+    background: 'none',
     boxShadow: "none",
-  };
-  const stylesB = {
-    backgroundColor: "#e7edf0",
-    margin: "0px",
-    padding: "0px",
-    boxShadow: "none",
-    width: "450px",
   };
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(false);
@@ -50,6 +44,7 @@ const Post = () => {
 
   const uploadFileHandler = async () => {
     if (file) {
+      props.onHideBox()
       setPreview(false);
       const fileRef = ref(storage, `posts/${currentUser.uid}/${file.name}.png`);
       await uploadBytes(fileRef, file);
@@ -78,6 +73,7 @@ const Post = () => {
   };
 
   return (
+    <Modal onClose={props.onHideBox}>
     <div className={classes.border}>
       <div className={classes.container}>
         <h1 className={classes.head}>Show Us What You've Got!</h1>
@@ -85,17 +81,18 @@ const Post = () => {
         <ImageUploader
           withIcon={preview ? false : true}
           buttonStyles={btnstyles}
-          fileContainerStyle={preview ? stylesB : stylesA}
+          fileContainerStyle={styles}
           withPreview={preview}
           buttonText="Choose a Picture"
           withLabel={false}
           singleImage={true}
           onChange={selectFileHandler}
+          onDelete={discardFileHandler}
         />
         {preview && (
           <textarea
             id="caption"
-            placeholder="Add a Caption"
+            placeholder="What's on Your Mind?"
             className={classes.textarea}
             maxLength="500"
             rows="2"
@@ -118,6 +115,7 @@ const Post = () => {
         </div>
       </div>
     </div>
+    </Modal>
   );
 };
 export default Post;

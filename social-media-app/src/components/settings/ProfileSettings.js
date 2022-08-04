@@ -100,7 +100,6 @@ const ProfileSettings = () => {
 
   return (
     <div>
-      {/* {showModal && <ChangePasswd onHideBox={hideModalHandler} />} */}
       <Link to="/profile" className={classes.settings}>
         {" "}
         <img className={classes.biosettings} alt="error" src={profile} />{" "}

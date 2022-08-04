@@ -9,9 +9,9 @@ const Home = () => {
     <div className="bg">
       <Navbar />
       <div className={classes.home}>
-        <Post />
+        {/* <Post/> */}
         <UserFeed />
-        <Notifications />
+        <Notifications className={classes.notif}/>
       </div>
     </div>
   );

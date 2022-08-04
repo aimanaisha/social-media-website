@@ -15,21 +15,6 @@ const Profile = () => {
   const [userData, setUserData] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // useEffect(() => {
-  //   setLoading(true);
-  //   const getData = async () => {
-  //     if (auth.currentUser) {
-  //       let uid = auth.currentUser.uid;
-  //       const q = query(collection(db, "file_posts"), where("uid", "==", uid));
-  //       const data = await getDocs(q);
-  //       setUserData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  //       setLoading(false);
-  //     } else {
-  //       alert("error");
-  //     }
-  //   };
-  //   getData();
-  // }, [auth]);
   useEffect(() => {
     setLoading(true)
     const q = query(
@@ -53,7 +38,7 @@ const Profile = () => {
       <div className={styles.profile}>
         <UserProfile />
       </div>
-
+      {userData.length ===0 && <h1 className={styles.heading}>No Posts to Show</h1>}
       <div className={classes.userfeed}>
         <p>{loading && <img src={loader} alt=""/>}</p>
         {userData.map((data) => {
