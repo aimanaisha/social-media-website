@@ -1,15 +1,7 @@
 import Modal from "../../Layout/Modal";
 import { useState, useEffect, useCallback } from "react";
 import classes from "../settings/ChangePasswd.module.css";
-import {
-  addDoc,
-  collection,
-  onSnapshot,
-  query,
-  where,
-  deleteDoc,
-  doc,
-} from "firebase/firestore";
+import {addDoc,collection,onSnapshot,query,where,deleteDoc,doc,orderBy} from "firebase/firestore";
 import { useAuth } from "../../store/AuthContext";
 import { db } from "../../store/firebase";
 import cross from "../../assets/cross.png";
@@ -20,6 +12,7 @@ const Comments = (props) => {
   const [comment, setComment] = useState("");
   const [allComments, setAllComments] = useState([]);
   const collectionRef = collection(db, "comments");
+
 
   const commentHandler = (e) => {
     setComment(e.target.value);
@@ -36,6 +29,7 @@ const Comments = (props) => {
         posted_on: current.toLocaleDateString(),
         posted_at: current.toLocaleTimeString(),
         comment: comment.trim(),
+        timestamp: current,
       };
       setComment("");
       await addDoc(collectionRef, payload);
@@ -46,6 +40,7 @@ const Comments = (props) => {
         post_user: props.postUser,
         user_dp: currentUser.photoURL,
         posted_img: props.postedImg,
+        timestamp: current,
       });
     } else {
       alert("empty field");
@@ -54,7 +49,7 @@ const Comments = (props) => {
 
   //  LOAD COMMENTS
   useEffect(() => {
-    const q = query(collectionRef, where("post_id", "==", props.postId));
+    const q = query(collectionRef, where("post_id", "==", props.postId), orderBy("timestamp", "desc"));
     const snap = () => {
       onSnapshot(q, (snapshot) => {
         setAllComments(
@@ -94,14 +89,20 @@ const Comments = (props) => {
           return (
             <div key={data.id} className={classes.commentbox}>
               <div className={classes.align}>
-                <img className={classes.dp} src={data.user_dp} alt="" />
-                <h3 className={classes.user}>{data.posted_by}</h3>
+                <div className={classes.align_user}>
+                  <img className={classes.dp} src={data.user_dp} alt="" />
+                  <h3 className={classes.user}>{data.posted_by}</h3>
+                </div>
                 <div className={classes.commentdiv}>
                   <p className={classes.comment}>{data.comment}</p>
                 </div>
               </div>
               <img
-                className={data.posted_by_id === currentUser.uid ? classes.delete : classes.hide_delete}
+                className={
+                  data.posted_by_id === currentUser.uid
+                    ? classes.delete
+                    : classes.hide_delete
+                }
                 src={cross}
                 alt=""
                 onClick={deleteCommentHandler(data.id)}

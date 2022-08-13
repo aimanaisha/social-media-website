@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { collection, onSnapshot, query, where } from "firebase/firestore";
-import { db } from "../store/firebase";
+import { db } from "../../store/firebase";
 import { getAuth } from "firebase/auth";
-import classes from "./Notifications.module.css";
+import classes from "./Notifs.module.css";
 
-const Notifications = () => {
+
+const Notifs = () => {
   const auth = getAuth();
   const uid = auth.currentUser.uid;
-  var current = new Date().toDateString()
+  var current = new Date().toDateString();
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
@@ -17,7 +18,6 @@ const Notifications = () => {
     );
     const snap = () => {
       onSnapshot(q, (snapshot) => {
-        // console.log(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
         setNotifications(
           snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
         );
@@ -28,8 +28,7 @@ const Notifications = () => {
   }, []);
 
   return (
-    <div className={classes.container}>
-        <h2 className={classes.head}>Notifications</h2>
+    <div className={classes.body}>
       {notifications.map((data) => {
         return (
           <div className={classes.notific} key={data.id}>
@@ -38,11 +37,8 @@ const Notifications = () => {
               <p className={classes.info}>
                 {data.done_by} {data.type} your post.
               </p>
-              <p className={classes.date}>
-                {current}
-              </p>
-            <div className={classes.border}></div>
-
+              <p className={classes.date}>{current}</p>
+              <div className={classes.border}></div>
             </div>
             <img className={classes.post} src={data.posted_img} alt="" />
           </div>
@@ -51,4 +47,4 @@ const Notifications = () => {
     </div>
   );
 };
-export default Notifications;
+export default Notifs;

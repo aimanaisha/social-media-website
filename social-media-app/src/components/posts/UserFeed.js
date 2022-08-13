@@ -26,7 +26,7 @@ const UserFeed = () => {
 
   return (
     <div className={classes.feed}>
-      <p>{loading && <img src={loader} alt=''/>}</p>
+      <p className={classes.loader}>{loading && <img src={loader} alt=''/>}</p>
       {userData.map((data) => {
         return <DisplayPost data={data} key={data.id} />;
       })}

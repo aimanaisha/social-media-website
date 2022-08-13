@@ -1,12 +1,12 @@
+.home {
+  padding-top: 6rem;
+  padding-left: 7rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+@media screen and (max-width: 1420px){
 .home{
-    padding-top: 6rem;
-    display: flex;
+  padding-left: 0rem;
 }
-.notif{
-    visibility: visible;
-}
-@media screen and (max-width: 550px){
-    .notif{
-        display: none;
-    }
 }

@@ -13,17 +13,18 @@ const Post = (props) => {
 
   const btnstyles = {
     backgroundColor: "#CDB4DB",
-    borderRadius: "12px",
+    borderRadius: "10px",
     border: "solid black 2px",
     color: "black",
-    padding: "0.8rem 2rem",
+    padding: "0.5rem 1rem",
     fontFamily: "Mali, cursive",
-    fontSize: "1.1rem",
+    fontSize: "1rem",
     marginTop: "20px",
   };
   const styles = {
     background: 'none',
     boxShadow: "none",
+    marginBottom: "0px"
   };
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(false);
@@ -59,6 +60,7 @@ const Post = (props) => {
         posted_at: current.toLocaleTimeString(),
         caption: text,
         uid: currentUser.uid,
+        timestamp: current,
       };
       await addDoc(collectionRef, payload);
       setText("");

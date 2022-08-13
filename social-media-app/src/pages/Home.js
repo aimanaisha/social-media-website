@@ -1,16 +1,14 @@
 import UserFeed from "../components/posts/UserFeed";
 import Navbar from "../components/Navbar";
 import classes from "./Home.module.css";
-import Post from "../components/posts/Post";
-import Notifications from "../components/Notifications";
+import Notifications from "../components/Notifications/Notifications";
 
 const Home = () => {
   return (
     <div className="bg">
       <Navbar />
       <div className={classes.home}>
-        {/* <Post/> */}
-        <UserFeed />
+        <UserFeed className={classes.feed}/>
         <Notifications className={classes.notif}/>
       </div>
     </div>

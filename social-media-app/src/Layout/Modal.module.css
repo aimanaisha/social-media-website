@@ -1,49 +1,105 @@
-@import url('https://fonts.googleapis.com/css2?family=Mali:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Mali:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 
 .backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 20;
-    background-color: rgba(202, 201, 201, 0.75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  background-color: rgba(202, 201, 201, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box{  
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 30;
+  text-align: center;
+  top: 0;
+  right: 0;
+  overflow-y: scroll;
+}
+.close_box{
+  display: flex;
+  justify-content: flex-end;
+}
+.close{
+  height: 25px;
+  width: 30px;
+  position: absolute;
+  cursor: pointer; 
+  transition: all .3s
+}
+.close:hover{
+    box-shadow: 0px 15px 25px -5px rgba(darken(rgb(0, 0, 0), 40%));
+    transform: scale(1.2);
+}
+.close:active{
+    box-shadow: 0px 4px 8px rgba(darken(rgb(0, 0, 0), 30%));
+    transform: scale(.98);
+ 
+}
+.modal {
+  margin-top: 13rem;
+  width: 40rem; 
+  display: inline-block;
+  max-height: 28rem;
+  overflow-y: scroll;
+  background-color: #fefeff;
+  padding: 1rem;
+  text-align: center;
+  font-family: "Mali", cursive;
+  border-radius: 14px;
+  border: solid black 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 40;
+  animation: slide-down 300ms ease-out forwards;
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
   }
-  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media screen and (max-width: 1000px) {
   .modal {
-    position: fixed;
-    top: 20vh;
-    left: 5%;
-    width: 90%;
-    max-height: 55%;
-    overflow-y: scroll;
-    background-color: #fefeff;
-    padding: 1rem;
-    text-align: center;
-    font-family: 'Mali', cursive;
-    border-radius: 14px;
-    border: solid black 2px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    z-index: 30;
-    animation: slide-down 300ms ease-out forwards;
+    width: 30rem;
   }
-  
-  @media (min-width: 768px) {
-    .modal {
-      width: 40rem;
-      left: calc(50% - 20rem);
-    }
+}
+@media screen and (max-width: 690px){
+  .modal {
+    width: 25rem;
   }
-  
-  @keyframes slide-down {
-    from {
-      opacity: 0;
-      transform: translateY(-3rem);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+}
+@media screen and (max-width: 590px){
+  .modal {
+    width: 20rem;
   }
+}
+@media screen and (max-width: 480px){
+  .modal {
+    width: 15rem;
+  }
+  .close{
+    right: 0px;
+    height: 15px;
+    width: 20px;
+  }
+}
+@media screen and (max-width: 360px){
+  .modal {
+    width: 12rem;
+  }
+  .head{
+    margin-top: 1rem;
+  }
+}

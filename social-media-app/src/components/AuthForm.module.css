@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Mali:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
 
 .container{
     display: flex;
@@ -57,7 +58,7 @@
   background-color: #F8AD9D;
   border: 2px solid #050505;
   border-radius: 8px;
-  width: 314px;
+  width: 120px;
   height: 38px;
   margin-top: 8px;
 }
@@ -75,21 +76,18 @@
 }
 .adventure{
     font-weight: 400;
-    margin-bottom: 0px;
     font-size: 1.8rem;
 }
 .started{
-    font-weight: 400;
-    margin-top: 2rem;
-    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
     color: #3a3535;
 }
 .noaccount{
     font-weight: 400;
     font-size: 1.3rem;
-    margin-top: 0px;
-    
+    margin-top: 15px;    
 }
 .image{
     margin: 0;
@@ -117,7 +115,6 @@
     font-weight: bold;
     cursor: pointer;
     border-radius: 10px;
-
 }
 .google{
     height: 30px;
@@ -129,4 +126,175 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 1120px){
+    .container{
+        width: 900px;
+        height: 52vh;
+    }
+    .adventure{
+        font-weight: 400;
+        margin-bottom: 0px;
+        font-size: 1.6rem;
+    }
+    .started{
+        margin-top: 2rem;
+        font-size: 1.8rem;
+    }
+}
+@media screen and (max-width: 940px){
+    .container{
+        width: 750px;
+        height: 48vh;
+    }
+    .adventure{
+        font-weight: 400;
+        margin-bottom: 0px;
+        font-size: 1.2rem;
+    }
+    .started{
+        margin-top: 2rem;
+        font-size: 1.4rem;
+    }
+    .input{
+        width: 75%;
+    }
+    .googlebutton{
+        width: 75%;
+    }
+    .loginbutton{
+        width: 180px;
+    }
+}
+    @media screen and (max-width: 940px){
+        .container{
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;   
+            margin: auto;
+            width: 400px;
+            height: fit-content;
+            text-align: center;
+            font-size: small;
+            border-radius: 17px;
+        }
+        .leftbox{
+            display: flex;
+            border-right: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            height: fit-content;
+            padding: 30px 0px;
+        } 
+        .rightbox{
+            padding: 20px 0px;
+            justify-content: center;
+            width: 400px;
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 17px; 
+            border-bottom-right-radius: 17px;       
+            border-top: solid black 3px;
+
+        }       
+        .input{
+            width: 75%;
+            height: 28px;
+            text-align: left;
+            margin: 0.8rem auto;
+            padding: 0.25rem;
+            padding-left: 12px;
+          border-radius: 10px;
+        
+        }
+        .adventure{
+            font-weight: 400;
+            margin-bottom: 0px;
+            font-size: 1rem;
+        }
+        .started{
+            margin-top: 2rem;
+            font-size: 1.1rem;
+        }
+        .signupbutton{
+          border-radius: 8px;
+          padding: 0.3rem 0.9rem;
+          width: 140px;
+          font-size: small;
+          margin: auto;
+        }
+        .noaccount{
+            font-weight: 400;
+            font-size: 0.9rem;
+            margin-top: 15px;    
+        }
+        .h1{
+            font-weight: 400;
+            font-size: x-large;
+        }
+    }
+    @media screen and (max-width: 440px){
+        .container{
+            width: 350px;
+        }
+        .rightbox{
+            width: 350px;
+        }
+        .signupbutton{
+            border-radius: 8px;
+            padding: 0.3rem 1.7rem;
+            width: fit-content;
+            font-size: smaller;
+            margin: auto;
+          }
+          .input{
+            width: 75%;
+            height: 20px;
+            text-align: left;
+            border-radius: 10px;
+            font-size: x-small;
+        }
+        .loginbutton{
+          border-radius: 8px;
+          width: fit-content;
+          padding: 0rem 1.7rem;
+          margin-top: 8px;
+          font-size: smaller;
+        }
+        .googlebutton{
+            width: 75%;
+            height: 35px;
+            display: flex;
+            border-radius: 10px;
+            font-size: smaller;
+        }
+        .google{
+            height: 20px;
+            margin-right: 10px;
+        }
+    }
+    @media screen and (max-width: 390px){
+        .container{
+            width: 290px;
+        }
+        .rightbox{
+            width: 290px;
+        }
+    }
+    @media screen and (max-width: 340px){
+        .container{
+            width: 240px;
+        }
+        .rightbox{
+            width: 240px;
+        }
+    }
+    @media screen and (max-width: 290px){
+        .container{
+            width: 200px;
+        }
+        .rightbox{
+            width: 200px;
+        }
+    }
 

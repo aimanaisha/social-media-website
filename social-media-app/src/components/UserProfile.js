@@ -16,12 +16,15 @@ import { collection, onSnapshot, query, where } from "firebase/firestore";
 import ChangeUsername from "./settings/ChangeUsername";
 
 const UserProfile = () => {
+
   const auth = getAuth();
+
   const [userName, setUserName] = useState("Username");
   const [dp, setDp] = useState(defaultDp);
   const [showModal, setShowModal] = useState(false);
   const [showModalA, setShowModalA] = useState(false);
   const [userinfo, setUserinfo] = useState([]);
+  
   const showModalHandler = () => {
     setShowModal(true);
   };
@@ -46,18 +49,6 @@ const UserProfile = () => {
       setUserName(auth.currentUser.displayName);
     }
   }, [auth, showModal]);
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const q = query(
-  //       collection(db, "user_info"),
-  //       where("uid", "==", auth.currentUser.uid)
-  //     );
-  //     const data = await getDocs(q);
-  //     setUserinfo(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  //   };
-  //   getData();
-  // }, []);
 
   useEffect(() => {
     const q = query(
@@ -89,7 +80,7 @@ const UserProfile = () => {
           alt=""
           onClick={showModalHandler}
         />
-        <div className={classes.namediv}>
+
           <h1 className={classes.username}>{userName}</h1>
           <img
             className={classes.unameupdate}
@@ -97,7 +88,7 @@ const UserProfile = () => {
             alt=""
             onClick={showModalAHandler}
           />
-        </div>
+      
 
         {userinfo.map((data) => {
           return (

@@ -20,11 +20,12 @@ const Likes = (props) => {
   const collectionRef = collection(db, "Likes");
   const [userLike, setUserLike] = useState([]);
   const [likeState, setLikeState] = useState(false);
+  var current = new Date();
 
   useEffect(() => {
     const getLikes = async () => {
       const q = query(collectionRef, where("postId", "==", props.postId));
-      const data = await getDocs(q); 
+      const data = await getDocs(q);
       setUserLike(
         data.docs
           .map((doc) => ({ ...doc.data(), id: doc.id }))
@@ -60,14 +61,22 @@ const Likes = (props) => {
       setLikeState(true);
       const payload = { uid: auth.currentUser.uid, postId: props.postId };
       await addDoc(collectionRef, payload);
-      await addDoc(collection(db, "notifications"), { type: 'liked',done_by_id: auth.currentUser.uid, done_by: auth.currentUser.displayName, post_user: props.postUser, user_dp: auth.currentUser.photoURL, posted_img: props.postedImg })
+      await addDoc(collection(db, "notifications"), {
+        type: "liked",
+        done_by_id: auth.currentUser.uid,
+        done_by: auth.currentUser.displayName,
+        post_user: props.postUser,
+        user_dp: auth.currentUser.photoURL,
+        posted_img: props.postedImg,
+        timestamp: current,
+      });
     }
   };
   return (
     <>
       <button className={classes.button} onClick={test}>
         <img
-          alt=''
+          alt=""
           className={classes.imgbtn}
           src={likeState === true ? like : unlike1}
         />

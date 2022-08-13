@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+.body{
+    background-color: #F8EDEB;
+    padding-top: 70px;
+}
+.notific{
+    display: flex;
+    padding-top: 20px;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+.dp{
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    border: solid black 1px;
+}
+.middle{
+    display: flex;
+    flex-direction: column;
+    /* background-color: brown; */
+    width: 65%;
+    border-bottom: solid rgb(119, 119, 119) 1px;
+
+}
+.info{
+    margin: 0px;
+    font-size: medium;
+    font-family: 'Mali', cursive;
+    margin-bottom: 8px;
+}
+.date{
+    margin: 0px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: x-small;
+    margin-bottom: 25px;
+
+}
+.post{
+    height: 90px;
+    width: 60px;
+    border-radius: 10px;
+    border: solid black 2px;
+}
+@media screen and (min-width: 670px){
+    .body{
+        background-color: #F8EDEB;
+        padding-top: 70px;
+    }
+    .notific{
+        display: flex;
+        padding-top: 20px;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .dp{
+        border-radius: 50%;
+        width: 55px;
+        height: 55px;
+        border: solid black 1px;
+    }
+    .middle{
+        display: flex;
+        flex-direction: column;
+        /* background-color: brown; */
+        width: 75%;
+        border-bottom: solid rgb(119, 119, 119) 1px;
+    
+    }
+    .info{
+        margin: 0px;
+        font-size: medium;
+        font-family: 'Mali', cursive;
+        margin-bottom: 8px;
+    }
+    .date{
+        margin: 0px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: x-small;
+        margin-bottom: 25px;
+    
+    }
+    .post{
+        height: 100px;
+        width: 70px;
+        border-radius: 10px;
+        border: solid black 2px;
+    }
+}
+@media screen and (max-width: 370px){
+    .body{
+        background-color: #F8EDEB;
+        padding-top: 70px;
+    }
+    .notific{
+        display: flex;
+        padding-top: 20px;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .dp{
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        border: solid black 1px;
+    }
+    .middle{
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        border-bottom: solid rgb(119, 119, 119) 1px;
+    
+    }
+    .info{
+        margin: 0px;
+        font-size: x-small;
+        font-family: 'Mali', cursive;
+        margin-bottom: 8px;
+    }
+    .date{
+        margin: 0px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: xx-small;
+        margin-bottom: 25px;
+    
+    }
+    .post{
+        height: 70px;
+        width: 40px;
+        border-radius: 10px;
+        border: solid black 2px;
+    }
+}
+

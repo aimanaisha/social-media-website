@@ -1,19 +1,16 @@
 .nav{
     position: fixed;
+    width: 100%;
 }
 .test{
     position: fixed;
-    right: 0.5px;
-    bottom: 35.3rem;
+    top: -7%;
 }
 .ul{
     position: relative;
     display: flex;
-    margin-left: 20px;
-    justify-content: end;
-}
-.left{
-    display: flex;
+    justify-content: flex-start;
+    padding-left: 2%;
 }
 .button{
     border: none;
@@ -24,7 +21,20 @@
     height: 50px;
     margin: 1rem;
     transition: all .3s
-
+}
+.notif{
+    height: 50px;
+    margin: 1rem;
+    transition: all .3s;
+    display: none;
+}
+.notif:hover{
+    box-shadow: 0px 15px 25px -5px rgba(darken(rgb(0, 0, 0), 40%));
+    transform: scale(1.09);
+}
+.notif:active{
+    box-shadow: 0px 4px 8px rgba(darken(rgb(0, 0, 0), 30%));
+    transform: scale(.92);
 }
 .image:hover{
     box-shadow: 0px 15px 25px -5px rgba(darken(rgb(0, 0, 0), 40%));
@@ -34,13 +44,59 @@
     box-shadow: 0px 4px 8px rgba(darken(rgb(0, 0, 0), 30%));
     transform: scale(.92);
 }
+
+@media screen and (max-width: 1420px){
+    .test{
+        position: fixed;
+        display: none;
+    }
+    .ul{
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 0%;
+        background-color: #cdb4dbeb;
+    }
+    .notif{
+        height: 50px;
+        margin: 1rem;
+        transition: all .3s;
+        display: block;
+    }
+}
+@media screen and (max-width: 820px){
+    .test{
+        position: fixed;
+        display: none;
+    }
+    .ul{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        padding-left: 0%;
+        background-color: #cdb4dbeb;
+    }
+}
 @media screen and (max-width: 550px){
     .image{ 
         height: 30px;    
     }
-    .test{
-        position: fixed;
-        right: 30px;
-        bottom: 830px;
+    .notif{
+        height: 30px;  
+    }
+    .ul{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        padding-left: 0%;
     }
 }
+@media screen and (max-width: 325px){
+    .image{ 
+        height: 25px;    
+    }
+    .notif{
+        height: 25px;  
+    }
+}
+

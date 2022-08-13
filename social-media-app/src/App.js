@@ -5,6 +5,8 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { useAuth } from "./store/AuthContext";
 import ProfileSettings from "./components/settings/ProfileSettings";
 import AccInfo from "./components/AccInfo";
+import Notifs from "./components/Notifications/Notifs";
+import Notifications from "./pages/Notifications";
 // import { useHistory } from "react-router-dom";
 // import { useEffect } from "react";
 
@@ -53,6 +55,11 @@ const App = () => {
         {currentUser && (
           <Route path="/settings">
             <ProfileSettings />
+          </Route>
+        )}
+        {currentUser && (
+          <Route path="/notifications">
+            <Notifications />
           </Route>
         )}
         {currentUser && (

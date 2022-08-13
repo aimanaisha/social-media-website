@@ -9,6 +9,7 @@
     font-weight: 600;
     color: rgb(52, 49, 49);
     font-size: 1.6rem;
+    margin-top: 1.5rem;
 }
 .input{
     display: none;
@@ -82,4 +83,87 @@
 .btnB{
     display: flex;
     justify-content: center;
+}
+@media (max-width: 690px){
+    .textarea{
+        width: 80%;
+        height: 1.5rem;
+    }
+}
+@media (max-width: 590px){
+    .head{
+        font-size: 1.3rem;
+        margin-top: 2rem;
+    }
+}
+@media screen and (max-width: 550px){
+    .input{
+        display: none;
+    }
+    .upload{
+        height: 30px;
+    }
+    
+    .caption{
+        font-size: 1.5rem;
+        display: block;
+    }
+    .textarea{
+        border-radius: 10px;
+        padding: 1rem 0.5rem;
+        width: 80%;
+    }
+    .discard{
+        border-radius: 11px;
+        padding: 0.3rem 1.4rem;
+        font-size: 0.9rem;
+        margin-right: 10px;    
+    }
+    .upload{
+        border-radius: 9px;
+        width: 110px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+    .btns{
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    
+    }
+    .btnB{
+        display: flex;
+        justify-content: center;
+    }
+}
+@media (max-width: 480px){
+    .head{
+        font-size: 1.1rem;
+        margin-top: 2rem;
+    }
+    .textarea{
+        width: 85%;
+        height: 1rem;
+    }
+} 
+@media (max-width: 360px){
+    .btns{
+        display: flex;
+        flex-direction: column;
+        align-items: center;   
+    }
+    .discard{
+        border-radius: 9px;
+        padding: 0.5rem 1.4rem;
+        font-size: 0.7rem;
+        margin-right: 0px;    
+    }
+    .upload{
+        border-radius: 9px;
+        width: 90px;
+        height: 35px;
+        font-size: 0.7rem;
+        margin-top: 0.7rem;
+    }
 }

@@ -1,110 +1,200 @@
-@import url('https://fonts.googleapis.com/css2?family=Mali:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mali:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 
+.container {
+  border: solid black 2px;
+  padding: 2rem 1.5rem;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  background-color: #cdeac0;
+  margin: auto;
+}
+.box {
+  margin: 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.input {
+  border: solid black 2px;
+  border-radius: 8px;
+  height: 45px;
+  width: 450px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  color: rgb(92, 92, 92);
+}
+.label {
+  font-family: "Mali", cursive;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+.discardbtn {
+  background-color: #f8ad9d;
+  border-radius: 5px;
+  cursor: pointer;
+  border: solid black 2px;
+  color: black;
+  padding: 0.4rem 3.3rem;
+  font-family: Mali, cursive;
+  font-size: 1.1rem;
+  width: fit-content;
+  transition: all 0.3s;
+}
+.discardbtn:hover {
+  box-shadow: 0px 15px 25px -5px rgba(darken(dodgerblue, 40%));
+  transform: scale(1.03);
+}
+.discardbtn:active {
+  box-shadow: 0px 4px 8px rgba(darken(dodgerblue, 30%));
+  transform: scale(0.98);
+}
+.updatebtn {
+  background-color: #cdb4db;
+  border-radius: 5px;
+  cursor: pointer;
+  border: solid black 2px;
+  color: black;
+  padding: 0.4rem 2rem;
+  font-family: Mali, cursive;
+  font-size: 1.1rem;
+  width: fit-content;
+  transition: all 0.3s;
+}
+.updatebtn:hover {
+  box-shadow: 0px 15px 25px -5px rgba(darken(dodgerblue, 40%));
+  transform: scale(1.03);
+}
+.updatebtn:active {
+  box-shadow: 0px 4px 8px rgba(darken(dodgerblue, 30%));
+  transform: scale(0.98);
+}
+.btnbox {
+  margin: 1rem 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.password {
+  background-color: #eef1ed;
+  border-radius: 5px;
+  cursor: pointer;
+  border: solid black 2px;
+  color: black;
+  padding: 0.4rem 2rem;
+  font-family: Mali, cursive;
+  font-size: 1.1rem;
+  width: fit-content;
+  margin: auto;
+}
+.biosettings {
+  height: 60px;
+  border-radius: 50%;
+  border: solid black 2px;
+  cursor: pointer;
+  padding: 10px;
+  margin: 2rem;
+  background-color: white;
+  transition: all 0.3s;
+}
+.biosettings:hover {
+  box-shadow: 0px 15px 25px -5px rgba(darken(dodgerblue, 40%));
+  transform: scale(1.03);
+}
+.biosettings:active {
+  box-shadow: 0px 4px 8px rgba(darken(dodgerblue, 30%));
+  transform: scale(0.98);
+}
 
-.container{
+@media screen and (max-width: 550px) {
+  .container {
     border: solid black 2px;
-    padding: 2rem 1.5rem;
+    padding: 1.2rem 1rem;
     border-radius: 22px;
     display: flex;
     flex-direction: column;
-    width: fit-content;
-    background-color: #CDEAC0;
+    text-align: center;
+    width: 80%;
+    background-color: #cdeac0;
     margin: auto;
-}
-.box{
-    margin: 1rem 1rem;
+  }
+  .box {
+    margin: 0.7rem 0rem;
     display: flex;
     flex-direction: column;
-}
-.input{
-    border: solid black 2px;
-    border-radius: 8px;
-    height: 45px;
-    width: 450px;
-    font-family: 'Montserrat', sans-serif;
+  }
+  .input {
+    border-radius: 12px;
+    height: 35px;
+    width: 97%;
     font-size: 1rem;
-    color: rgb(92, 92, 92);
-
-}
-.label{
-    font-family: 'Mali', cursive;
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-}
-.discardbtn{
-    background-color: #F8AD9D;
-    border-radius: 5px;
-    cursor: pointer;
-    border: solid black 2px; 
-    color: black;
-    padding: 0.4rem 3.3rem;
-    font-family: Mali, cursive;
-    font-size: 1.1rem;
+    margin: auto;
+  }
+  .label {
+    margin-bottom: 0.7rem;
+    font-size: 1.2rem;
+  }
+  .discardbtn {
+    border-radius: 9px;
+    padding: 5px 20px;
+    font-size: 1rem;
     width: fit-content;
-    transition: all .3s
-}
-.discardbtn:hover{
-    box-shadow: 0px 15px 25px -5px rgba(darken(dodgerblue, 40%));
-    transform: scale(1.03);
-}
-.discardbtn:active{
-    box-shadow: 0px 4px 8px rgba(darken(dodgerblue, 30%));
-    transform: scale(.98);
-}
-.updatebtn{
-    background-color: #CDB4DB;
-    border-radius: 5px;
-    cursor: pointer;
-    border: solid black 2px; 
-    color: black;
-    padding: 0.4rem 2rem;
-    font-family: Mali, cursive;
-    font-size: 1.1rem;
+    margin-right: 0.5rem;
+  }
+  .updatebtn {
+    border-radius: 9px;
+    padding: 8px 12px;
+    font-size: 1rem;
     width: fit-content;
-    transition: all .3s
-}
-.updatebtn:hover{
-    box-shadow: 0px 15px 25px -5px rgba(darken(dodgerblue, 40%));
-    transform: scale(1.03);
-}
-.updatebtn:active{
-    box-shadow: 0px 4px 8px rgba(darken(dodgerblue, 30%));
-    transform: scale(.98);
-}
-.btnbox{
-    margin: 1rem 1rem;
+  }
+  .btnbox {
+    margin: 1rem 0rem;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-}
-.password{
+    justify-content: center;
+  }
+  .password {
     background-color: #eef1ed;
     border-radius: 5px;
     cursor: pointer;
-    border: solid black 2px; 
+    border: solid black 2px;
     color: black;
     padding: 0.4rem 2rem;
     font-family: Mali, cursive;
     font-size: 1.1rem;
     width: fit-content;
     margin: auto;
+  }
+  .biosettings {
+    height: 30px;
+    padding: 7px;
+    margin: 1rem;
+  }
 }
-.biosettings{    
-    height: 60px;
-    border-radius: 50%;
-    border: solid black 2px;
-    cursor: pointer;
-    padding: 10px;
-    margin: 2rem;
-    background-color: white;
-    transition: all .3s
-}
-.biosettings:hover{
-    box-shadow: 0px 15px 25px -5px rgba(darken(dodgerblue, 40%));
-    transform: scale(1.03);
-}
-.biosettings:active{
-    box-shadow: 0px 4px 8px rgba(darken(dodgerblue, 30%));
-    transform: scale(.98);
+@media screen and (max-width: 350px){
+  .label {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  .input {
+    border-radius: 8px;
+    height: 25px;
+    width: 97%;
+    font-size: 1rem;
+    margin: auto;
+  }
+  .discardbtn {
+    border-radius: 9px;
+    padding: 5px 20px;
+    font-size: 0.6rem;
+    width: fit-content;
+    margin-right: 0.5rem;
+  }
+  .updatebtn {
+    border-radius: 9px;
+    padding: 8px 12px;
+    font-size: 0.6rem;
+    width: fit-content;
+  }
 }

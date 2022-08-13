@@ -1,32 +1,30 @@
 import classes from "./Modal.module.css";
-import { Scrollbars } from 'react-custom-scrollbars';
 import ReactDOM from "react-dom";
-
+import close from "../assets/close.png";
 
 const Backdrop = (props) => {
-  return <div className={classes.backdrop} onClick={props.onClick} />;
+  return <div className={classes.backdrop} />;
 };
 
 const ModalOverlay = (props) => {
   return (
-    <Scrollbars style={{ width: 800, height: 300 }}>
+    <div className={classes.box}>
       <div className={classes.modal}>
+        <div className={classes.close_box}>          
+          <img src={close} className={classes.close} onClick={props.onClick}/>
+        </div>
         <div className={classes.content}>{props.children}</div>
       </div>
-    </Scrollbars>
-    
+    </div>
   );
 };
 
 const Modal = (props) => {
   return (
     <>
+      {ReactDOM.createPortal(<Backdrop />, document.getElementById("portal"))}
       {ReactDOM.createPortal(
-        <Backdrop onClick={props.onClose} />,
-        document.getElementById("portal")
-      )}
-      {ReactDOM.createPortal(
-        <ModalOverlay>{props.children}</ModalOverlay>,
+        <ModalOverlay onClick={props.onClose}>{props.children}</ModalOverlay>,
         document.getElementById("portal")
       )}
     </>

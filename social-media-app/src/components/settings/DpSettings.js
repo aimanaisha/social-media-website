@@ -9,18 +9,20 @@ import { db } from "../../store/firebase";
 const DpSettings = (props) => {
   const btnstyles = {
     backgroundColor: "#CDB4DB",
-    borderRadius: "0px",
+    borderRadius: "10px",
     border: "solid black 2px",
     color: "black",
-    padding: "0.8rem 2rem",
+    // padding: "0.5rem 1rem",
     fontFamily: "Mali, cursive",
-    fontSize: "1.1rem",
+    fontSize: "1rem",
     marginTop: "20px",
   };
   const stylesA = {
     backgroundColor: "white",
     padding: "1.5rem 1.9rem",
+    paddingBottom: "0px",
     boxShadow: "none",
+    margin: "0px"
   };
 
   const currentUser = useAuth();
@@ -37,8 +39,6 @@ const DpSettings = (props) => {
   };
   const imageUploadHandler = async () => {
     props.onHideBox();
-    alert("Your Display Picture Will be Changed");
-
     await upload(photo, currentUser);
     setPhoto(null);
 

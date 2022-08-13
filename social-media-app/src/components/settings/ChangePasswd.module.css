@@ -1,8 +1,8 @@
 
-
 .container{
     display: flex;
     flex-direction: column;
+    margin-top: 1rem;
 }
 .head{
     font-weight: 300;
@@ -12,7 +12,7 @@
     border: solid black 2px;
     border-radius: 7px;
     height: 35px;
-    width: 450px;
+    width: 80%;
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     padding-left: 15px;
@@ -58,6 +58,7 @@
 .commentbox{
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     margin: 0.9rem 0.3rem;
     border-bottom: solid rgb(148, 137, 137) 1px;
     padding-bottom: 0.4rem;
@@ -70,7 +71,6 @@
 }
 .user{
     margin: 0px 0.6rem;
-    /* font-family: 'Montserrat', sans-serif; */
     font-weight: 600;
     color: rgb(62, 60, 64);
     font-size: 1rem;
@@ -80,7 +80,6 @@
     margin: 0px;
     text-align: left;
     margin-top: 3px;
-
 }
 .updatebtn:hover{
     box-shadow: 0px 15px 25px -5px rgba(darken(dodgerblue, 40%));
@@ -91,12 +90,12 @@
     transform: scale(.98);
 }
 .delete{
-    height: 23px;
+    height: 16px;
     cursor: pointer;
     transition: all .3s;
 }
 .hide_delete{
-    height: 23px;
+    height: 16px;
     cursor: pointer;
     transition: all .3s;
     visibility: hidden;
@@ -111,4 +110,54 @@
 }
 .align{
     display: flex;
+}
+.align_user{
+    display: flex;
+}
+@media screen and (max-width: 690px){
+    .head{
+        font-weight: 300;
+        font-size: 1.5rem;
+    }
+    .updatebtn{
+        padding: 0.3rem 1rem;
+        font-size: 0.8rem;
+    }
+    .comment{
+        font-size: small;
+        margin-left: 1.8rem;
+    }
+    .user{
+        font-size: 0.8rem;
+        color: black;
+        letter-spacing: 1px;
+    }
+    .align{
+        display: flex;
+        flex-direction: column;
+    }
+    .align_user{
+        display: flex;
+        margin-bottom: 0.5rem;
+    }
+    .input{
+
+        height: 25px;
+        width: 85%;
+        font-size: 0.7rem;
+        padding-left: 15px;
+    
+    }
+}
+@media screen and (max-width: 480px){
+    .dp{
+        height: 17px;
+        width: 17px;
+        border-radius: 50%;
+        border: solid #b790d4 1px;
+    }
+    .head{
+        font-weight: 300;
+        font-size: 1.1rem;
+    }
 }

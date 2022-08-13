@@ -6,7 +6,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 30rem;
 }
 .userfeed{
     display: flex;
@@ -15,7 +14,7 @@
 }
 .post{
     background-color: #e7edf0;
-    width: 500px;
+    width: 480px;
     padding: 1.8rem;
     margin-bottom: 3rem;
     border-radius: 15px;
@@ -52,7 +51,6 @@
 
 }
 .username{
-    /* font-family: 'Mali', cursive; */
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 22px;
     font-size: 1rem;
@@ -62,7 +60,6 @@
 }
 .text{
     font-family: 'Mali', cursive;
-    /* font-weight: 8rem; */
     font-size: 1.2rem;
     margin-top: 0px;
     margin-bottom: 25px;
@@ -72,13 +69,14 @@
     text-align: justify;
 }
 .postedimg{
-    height: 670px;
-    width: 500px;
+    height: 600px;
+    width: 480px;
     border: solid rgb(67, 67, 67) 2px;
-    border-radius: 10px;
+    object-fit: contain;
+    background-color: #f3f3f3;
 }
 .date{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: #51555C;
     font-size: small;
     margin: 0px;
@@ -138,23 +136,68 @@
     cursor: pointer;
     color: #383b40;
 }
-@media screen and (max-width: 550px){
-    .feed{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-left: 0rem;
-        /* background-color: #292a2c; */
-        width: 100%;
-    }
-    .userfeed{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+.comment_section{
+    display: flex;
+    align-items: center;
+    border: solid black 1px;
+    border-radius: 8px;
+    padding: 0.4rem 0rem;
+    margin-top: 1rem;
+    background-color: #f3f3f3;
+}
+.input{
+    width: 99%;
+    border: none;
+    height: 30px;
+    background: none;
+    font-family: 'Montserrat', sans-serif;
+    color: #292a2c;
+    padding-left: 15px;
+    font-size: 0.9rem;
+    outline: none;
+
+}
+.post_btn{
+    height: 30px;
+    width: 48px;
+    cursor: pointer;
+}
+.comment_div{
+    display: flex;
+    align-items: flex-start;
+    font-family: 'Mali', cursive;
+    margin-top: 1rem;
+    background-color: #f3f3f3;
+    border: solid #aa84c7 2px;
+    border-radius: 9px;
+    padding: 0.5rem 1rem;
+}
+.comment_user{
+    display: flex;    
+}
+.comment_dp{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: solid rgb(91, 90, 90) 2px;
+}
+.comment_username{
+    margin: 0px 8px;
+    font-size: 0.8rem;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 4px;
+}
+.comment_text{
+    margin: 0px;
+    width: 400px;
+}
+
+@media screen and (max-width: 730px){
+    
     .post{
-        width: 85%;
+        width: 370px;
         padding: 0.8rem;
+        padding-bottom: 1.3rem;
         margin-bottom: 3rem;
         border-radius: 15px;
         text-align: center;
@@ -185,7 +228,7 @@
     }
     .postedimg{
         height: 440px;
-        width: 99%;
+        width: 93%;
     }
     .date{
         font-size: x-small;
@@ -218,6 +261,162 @@
     .like_comment{
         margin-left: 12px;
         margin-top: 2px;
-
+    }
+    .comment_section{
+        padding: 0.1rem 0rem;
+        width: 90%;
+        margin: auto;
+        margin-top: 1rem;
+    }
+    .input{
+        height: 28px;
+        padding-left: 15px;
+        font-size: 0.8rem;   
+    }
+    .post_btn{
+        height: 25px;
+        width: 43px;
+        cursor: pointer;
+    }
+    .comment_username{
+        margin: 0px 8px;
+        font-size: 0.7rem;
+        font-family: 'Montserrat', sans-serif;
+        margin-top: 4px;
+    }
+    .comment_text{
+        margin: 0px;
+        width: 400px;
+        text-align: left;
+        margin-left: 2px;
+        font-size: 0.8rem;
+    }
+    .comment_div{
+        display: flex;
+        align-items: flex-start;
+        padding: 0.5rem 1rem;
+        width: 81%;
+        margin: auto;
+        margin-top: 1rem;
+    }
+}
+@media screen and (max-width: 450px){
+    .input{
+        height: 25px;
+        padding-left: 15px;
+        font-size: 0.7rem;   
+    }
+    .comment_div{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem 1rem;
+        width: 81%;
+        margin: auto;
+        margin-top: 1rem;
+    }
+    .comment_dp{
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        border: solid rgb(91, 90, 90) 2px;
+    }
+    .comment_text{
+        margin: 0px;
+        width: 100%;
+        margin-top: 7px;
+        margin-left: 7px;
+    }
+    .post{
+        width: 300px;
+    }
+    .postedimg{
+        height: 390px;
+        width: 95%;
+    }
+}
+@media screen and (max-width: 360px){
+    .post{
+        width: 240px;
+    }
+    .postedimg{
+        height: 310px;
+        width: 95%;
+    }
+    .text{
+        font-size: 0.7rem;
+        width: 95%;
+        margin: auto;
+        margin-bottom: 20px;
+        letter-spacing: 0.5px;
+    }
+    .comment_section{
+        padding: 0.1rem 0rem;
+        width: 90%;
+        margin: auto;
+        margin-top: 1rem;
+    }
+    .input{
+        height: 28px;
+        padding-left: 15px;
+        font-size: 0.8rem;   
+    }
+    .post_btn{
+        height: 22px;
+        width: 40px;
+        cursor: pointer;
+    }
+    .comment_username{
+        margin: 0px 8px;
+        font-size: 0.6rem;
+        font-family: 'Montserrat', sans-serif;
+        margin-top: 4px;
+    }
+    .comment_text{
+        margin: 0px;
+        width: 100%;
+        margin-top: 6px;
+        text-align: left;
+        margin-left: 2px;
+        font-size: 0.7rem;
+    }
+    .comment_div{
+        display: flex;
+        align-items: flex-start;
+        padding: 0.5rem 1rem;
+        width: 81%;
+        margin: auto;
+        margin-top: 1rem;
+    }
+}
+@media screen and (max-width: 300px){
+    .post{
+        width: 200px;
+    }
+    .postedimg{
+        height: 240px;
+        width: 95%;
+    }
+    .text{
+        font-size: 0.6rem;
+    }
+    .imgbtn{
+        height: 20px;
+    }
+    .like_comment{
+        margin-left: 0px;
+        margin-top: 2px;
+    }
+    .likes{
+        margin: 0px;
+        font-size: xx-small;
+    }
+    .date{
+        font-size: xx-small;
+    }
+    .input{
+        height: 20px;
+        padding-left: 15px;
+        font-size: 0.6rem;   
     }
 }

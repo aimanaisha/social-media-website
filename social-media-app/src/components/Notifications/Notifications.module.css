@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 26rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    align-items: center;
+    background-color: #e7f5e1;
+    background-image: repeating-linear-gradient(0deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(90deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(180deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px), repeating-linear-gradient(270deg, #aa84c7, #aa84c7 16px, transparent 16px, transparent 25px, #aa84c7 25px);
+    background-size: 3px 100%, 100% 3px, 3px 100% , 100% 3px;
+    background-position: 0 0, 0 0, 100% 0, 0 100%;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    height: 32rem;
+    overflow-y: scroll;
+    padding: 2rem 0.5rem 1rem 0.5rem;
+}
+.dp{
+    height:30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 2px solid #212021;
+}
+.post{
+    height:70px;
+    width: 50px;
+    border: 2px solid rgb(79, 79, 79);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+
+}
+.notific{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.3rem;
+    justify-content: space-around;
+    align-items: center;
+}
+.middle{
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    margin-left: 1rem;
+    border-bottom: solid black 1px;
+}
+.info{
+    
+    margin-bottom: 8px;
+    font-family: 'Mali', cursive;
+    font-size: medium;
+    color: rgb(0, 0, 0);
+}
+.date{
+    margin: 0;
+    font-size: small;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(73, 73, 73);
+    margin-bottom: 25px;
+
+}
+
+.head{
+    font-family: 'Mali', cursive;
+    color: rgb(51, 51, 54);
+}
+
+@media screen and (max-width: 1420px){
+    .container{
+        display: none;
+    }
+}
