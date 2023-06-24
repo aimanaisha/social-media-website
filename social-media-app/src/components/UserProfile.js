@@ -63,7 +63,7 @@ const UserProfile = () => {
       });
     };
     snap();
-  }, []);
+  }, [auth.currentUser.uid]);
 
   return (
     <>

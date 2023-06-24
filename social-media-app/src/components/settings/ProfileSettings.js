@@ -25,7 +25,7 @@ const ProfileSettings = () => {
       setUserinfo(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getData();
-  }, []);
+  }, [auth.currentUser.uid]);
 
   const dobHandler = (e) => {
     setInfo({ ...info, dob: e.target.value });

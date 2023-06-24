@@ -25,7 +25,7 @@ const Notifications = () => {
     };
 
     snap();
-  }, []);
+  }, [uid]);
 
   return (
     <div className={classes.container}>

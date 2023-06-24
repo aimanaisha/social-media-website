@@ -33,16 +33,14 @@ const Likes = (props) => {
             return like.uid === auth.currentUser.uid;
           })
       );
-      data.docs
-        .map((doc) => ({ ...doc.data(), id: doc.id }))
-        .map((like) => {
+      data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).map((like) => {
           if (like.uid === auth.currentUser.uid) {
             setLikeState(true);
           }
         });
     };
     getLikes();
-  }, [likeState]);
+  }, [likeState, auth.currentUser.uid, collectionRef, props.postId]);
 
   useEffect(() => {
     const getLikes = async () => {
@@ -51,7 +49,7 @@ const Likes = (props) => {
       setAllLikes(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getLikes();
-  }, [likeState]);
+  }, [likeState, props.postId, collectionRef]);
 
   const test = async () => {
     if (userLike.length !== 0) {

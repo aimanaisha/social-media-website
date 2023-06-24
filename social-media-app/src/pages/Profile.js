@@ -30,7 +30,7 @@ const Profile = () => {
       });
     };
     snap();
-  }, []);
+  }, [auth.currentUser.uid]);
 
   return (
     <>

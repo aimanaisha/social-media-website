@@ -28,7 +28,7 @@ const DisplayPost = (props) => {
   const [comment, setComment] = useState("");
   const [allComments, setAllComments] = useState([]);
   const collectionRef = collection(db, "comments");
-  const [state, setState] = useState(false);
+  // const [state, setState] = useState(false);
 
   const commentHandler = (e) => {
     setComment(e.target.value);
@@ -79,7 +79,7 @@ const DisplayPost = (props) => {
       });
     };
     snap();
-  }, []);
+  }, [props.data.id, collectionRef]);
 
   const showModalHandler = () => {
     setData(props.data);
@@ -162,7 +162,7 @@ const DisplayPost = (props) => {
           onChange={commentHandler}
           value={comment}
         />
-        <img src={send} className={classes.post_btn} onClick={submitHandler}/>
+        <img src={send} alt="" className={classes.post_btn} onClick={submitHandler}/>
       </div>
       {allComments.map((data) => {
         return (

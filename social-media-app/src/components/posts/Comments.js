@@ -58,7 +58,7 @@ const Comments = (props) => {
       });
     };
     snap();
-  }, []);
+  }, [collectionRef, props.postId]);
 
   //   DELETE COMMENTS
   const deleteCommentHandler = useCallback(

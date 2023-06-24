@@ -22,7 +22,7 @@ const UserFeed = () => {
     })}
     snap();
 } 
-, [])
+, [collectionRef])
 
   return (
     <div className={classes.feed}>
